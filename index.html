@@ -306,6 +306,124 @@ th{
   color:var(--muted);
 }
 
+  /* =========================
+   APP LOADING SCREEN
+   ========================= */
+
+#appLoading {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  background: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: opacity .35s ease, visibility .35s ease;
+}
+
+#appLoading.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-road {
+  width: 260px;
+  height: 100px;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+}
+
+.loading-road::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+
+  height: 3px;
+
+  background: #168a4a;
+  opacity: .25;
+}
+
+.loading-gear {
+  font-size: 75px;
+  line-height: 1;
+
+  animation: gearMoveSpin 1.5s linear infinite;
+}
+
+@keyframes gearMoveSpin {
+  from {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(100px) rotate(360deg);
+  }
+}
+.loading-title {
+  margin-top: 15px;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  color: #168a4a;
+}
+
+.loading-text {
+  margin-top: 8px;
+
+  font-size: 15px;
+  color: #777;
+}
+
+.loading-bar {
+  width: 190px;
+  height: 6px;
+
+  margin-top: 18px;
+
+  background: #e5e5e5;
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.loading-progress {
+  width: 40%;
+  height: 100%;
+
+  background: #168a4a;
+  border-radius: 10px;
+
+  animation: loadingProgress 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingProgress {
+  0% {
+    width: 5%;
+  }
+
+  50% {
+    width: 75%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 /* PRINT */
 
 @media print{
@@ -382,6 +500,18 @@ th{
 </head>
 
 <body>
+  <div id="appLoading">
+  <div class="loading-road">
+    <div class="loading-gear">⚙️</div>
+  </div>
+
+  <div class="loading-title">ကိုကြက် ကားဝပ်ရှော့</div>
+  <div class="loading-text">Loading...</div>
+
+  <div class="loading-bar">
+    <div class="loading-progress"></div>
+  </div>
+  </div>
 
 <header>
 
@@ -914,6 +1044,7 @@ th{
 
 </div>
 
+  
 </section>
 
 </main>
@@ -4217,7 +4348,78 @@ async function initApp(){
    START APP
 ===================================================== */
 
-initApp();
+async function startApp() {
+
+  const loading =
+    document.getElementById("appLoading");
+
+  const alreadyOpened =
+    sessionStorage.getItem("appOpened");
+
+  const startTime =
+    Date.now();
+
+
+  try {
+
+    await initApp();
+
+  } catch (error) {
+
+    console.error(error);
+
+  }
+
+
+  /*
+    App ကို ဒီ session မှာ
+    ပထမဆုံးဝင်တာဆို Loading ပြမယ်
+  */
+
+  if (!alreadyOpened) {
+
+    sessionStorage.setItem(
+      "appOpened",
+      "true"
+    );
+
+
+    const elapsed =
+      Date.now() - startTime;
+
+
+    const remaining =
+      Math.max(
+        0,
+        2000 - elapsed
+      );
+
+
+    setTimeout(() => {
+
+      loading?.classList.add(
+        "hide"
+      );
+
+    }, remaining);
+
+
+  } else {
+
+    /*
+      Refresh ဖြစ်ရင်
+      Loading မပြ
+    */
+
+    loading?.classList.add(
+      "hide"
+    );
+
+  }
+
+}
+
+startApp();
 
 
 if ("serviceWorker" in navigator) {
