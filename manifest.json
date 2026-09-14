@@ -1,0 +1,10 @@
+{
+  "name": "ကိုကြက် ကားဝပ်ရှော့",
+  "short_name": "ကိုကြက်ဝပ်ရှော့",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4faf6",
+  "theme_color": "#168a4a",
+  "lang": "my",
+  "icons": []
+}

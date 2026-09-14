@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#168a4a">
+<link rel="manifest" href="manifest.json">
+<title>ကိုကြက် ကားဝပ်ရှော့</title>
+<style>
+:root{--g:#168a4a;--gd:#0e6d39;--bg:#f4faf6;--card:#fff;--line:#dbe9df;--text:#173323;--muted:#6b7d72;--danger:#c62828}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans Myanmar","Myanmar Text",system-ui,sans-serif}
+header{background:var(--g);color:white;padding:16px 14px;position:sticky;top:0;z-index:5;box-shadow:0 2px 8px #0002}
+h1{font-size:21px;margin:0 0 4px}.sub{font-size:12px;opacity:.9}
+.tabs{display:flex;gap:5px;background:#fff;padding:7px;position:sticky;top:73px;z-index:4;box-shadow:0 1px 5px #0001;overflow:auto}
+.tab{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 11px;white-space:nowrap;font-size:13px}.tab.active{background:var(--g);color:#fff;border-color:var(--g)}
+main{max-width:900px;margin:auto;padding:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px;margin-bottom:12px;box-shadow:0 1px 4px #00000008}
+label{display:block;font-size:13px;margin:8px 0 5px;font-weight:600}input,select,textarea{width:100%;padding:10px;border:1px solid #cbdcd0;border-radius:9px;font:inherit;background:#fff}textarea{min-height:70px;resize:vertical}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}@media(max-width:520px){.grid{grid-template-columns:1fr}}
+button{border:0;border-radius:9px;padding:10px 13px;font:inherit;cursor:pointer}.primary{background:var(--g);color:white}.secondary{background:#eaf5ee;color:var(--gd)}.danger{background:#ffeded;color:var(--danger)}.row{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.right{margin-left:auto}
+.item{border:1px solid var(--line);padding:10px;border-radius:10px;margin-top:8px;background:#fbfefc}.itemgrid{display:grid;grid-template-columns:1fr 90px 120px auto;gap:7px;align-items:end}@media(max-width:650px){.itemgrid{grid-template-columns:1fr 1fr}.itemgrid .iname{grid-column:1/-1}}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{background:#f0f8f3}.total{font-size:18px;font-weight:800;color:var(--gd)}.muted{color:var(--muted);font-size:12px}.badge{display:inline-block;border-radius:20px;padding:4px 8px;font-size:11px;background:#fff3cd;color:#7a5b00}.paid{background:#dff5e7;color:#146b37}.locked{opacity:.65}.section-title{font-weight:800;font-size:16px;margin-bottom:8px}.empty{text-align:center;color:var(--muted);padding:25px}.view{display:none}.view.active{display:block}.notice{padding:10px;border-radius:9px;background:#fff8df;border:1px solid #f0df9a;font-size:12px}
+</style>
+</head>
+<body>
+<header><h1>ကိုကြက် ကားဝပ်ရှော့</h1><div class="sub">ဘောင်ချာစာရင်း • ဖုန်းထဲ Local Storage</div></header>
+<div class="tabs">
+<button class="tab active" data-view="vouchers">ဘောင်ချာ</button>
+<button class="tab" data-view="monthly">လချုပ်</button>
+<button class="tab" data-view="yearly">နှစ်ချုပ်</button>
+</div>
+
+<main>
+<section id="vouchers" class="view active">
+<div class="card">
+<div class="section-title">ဘောင်ချာအသစ်</div>
+<div class="grid">
+<div><label>ဘောင်ချာနံပါတ် (Auto)</label><input id="no" readonly></div>
+<div><label>ရက်စွဲ</label><input id="date" type="date"></div>
+<div><label>ကားနံပါတ်</label><input id="carNo" placeholder="ဥပမာ 3H/1234"></div>
+<div><label>ပိုင်ရှင်အမည်</label><input id="customer" placeholder="အမည်"></div>
+</div>
+
+<div style="margin-top:13px;font-weight:800">ပြုပြင် / ပစ္စည်း</div>
+<div id="items"></div>
+<button class="secondary" style="margin-top:8px" onclick="addItem()">＋ ပစ္စည်း/ပြုပြင်မှု ထည့်မယ်</button>
+
+<div style="margin-top:14px;font-weight:800">ပြုပြင်စစ်ဆေးလက်ခ</div>
+<div class="grid">
+<div><label>လက်ခ (ကျပ်)</label><input id="labor" type="number" min="0" value="0"></div>
+<div><label>မှတ်ချက်</label><input id="note" placeholder="လိုအပ်ပါကရေးပါ"></div>
+</div>
+
+<div class="row" style="margin-top:12px">
+<label style="display:flex;gap:7px;align-items:center;font-weight:700;margin:0">
+<input id="paid" type="checkbox" style="width:auto"> ငွေရှင်းပြီး
+</label>
+</div>
+<div class="notice" style="margin-top:10px">⚠️ “ငွေရှင်းပြီး” အဖြစ် သိမ်းပြီးပါက အဲဒီဘောင်ချာကို Edit / Delete မလုပ်နိုင်တော့ပါ။</div>
+<div class="row" style="margin-top:12px">
+<button class="primary" onclick="saveVoucher()">သိမ်းမယ်</button>
+<button class="secondary" onclick="resetForm()">ရှင်းမယ်</button>
+</div>
+</div>
+
+<div class="card">
+<div class="row"><div class="section-title">ဘောင်ချာစာရင်း</div><div class="right"><input id="search" placeholder="ရှာရန်..." oninput="renderVouchers()"></div></div>
+<div id="voucherList"></div>
+</div>
+</section>
+
+<section id="monthly" class="view">
+<div class="card">
+<div class="row"><div class="section-title">လချုပ်</div><div class="right"><input id="monthPick" type="month" onchange="renderMonthly()"></div></div>
+<div class="row" style="margin-bottom:10px">
+<button id="monthAllBtn" class="primary" onclick="setLaborMode('month',false)">စုစုပေါင်း</button>
+<button id="monthLaborBtn" class="secondary" onclick="setLaborMode('month',true)">လက်ခပဲကြည့်</button>
+</div>
+<div id="monthlySummary"></div>
+</div>
+</section>
+
+<section id="yearly" class="view">
+<div class="card">
+<div class="row"><div class="section-title">နှစ်ချုပ်</div><div class="right"><input id="yearPick" type="number" min="2000" max="2100" onchange="renderYearly()"></div></div>
+<div class="row" style="margin-bottom:10px">
+<button id="yearAllBtn" class="primary" onclick="setLaborMode('year',false)">စုစုပေါင်း</button>
+<button id="yearLaborBtn" class="secondary" onclick="setLaborMode('year',true)">လက်ခပဲကြည့်</button>
+</div>
+<div id="yearlySummary"></div>
+</div>
+</section>
+</main>
+
+<script>
+const KEY="koKyatCarWorkshop_v2";
+let data=JSON.parse(localStorage.getItem(KEY)||"[]");
+let editingId=null;
+let laborMode={month:false,year:false};
+
+const $=id=>document.getElementById(id);
+function today(){return new Date().toISOString().slice(0,10)}
+function money(n){return Number(n||0).toLocaleString("en-US")+" ကျပ်"}
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function nextNo(){
+  let nums=data.map(v=>parseInt(String(v.no||"").replace(/\D/g,""),10)).filter(Number.isFinite);
+  return (nums.length?Math.max(...nums):0)+1;
+}
+function resetForm(){
+ editingId=null;$("no").value=nextNo();$("date").value=today();$("carNo").value="";$("customer").value="";$("labor").value=0;$("note").value="";$("paid").checked=false;
+ $("items").innerHTML="";addItem();
+ document.querySelector(".section-title").textContent="ဘောင်ချာအသစ်";
+}
+function addItem(item={name:"",qty:1,price:0}){
+ const wrap=document.createElement("div");wrap.className="item";
+ wrap.innerHTML=`<div class="itemgrid">
+ <div class="iname"><label>အမည်</label><input class="inamev" value="${esc(item.name)}" placeholder="ပစ္စည်း / ပြုပြင်မှု"></div>
+ <div><label>အရေအတွက်</label><input class="qty" type="number" min="0" step="0.01" value="${item.qty}"></div>
+ <div><label>တစ်ခုဈေး</label><input class="price" type="number" min="0" value="${item.price}"></div>
+ <button class="danger" onclick="this.closest('.item').remove()">ဖျက်</button></div>`;
+ $("items").appendChild(wrap);
+}
+function esc(s){return String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll('"',"&quot;")}
+function getItems(){
+ return [...document.querySelectorAll(".item")].map(x=>({name:x.querySelector(".inamev").value.trim(),qty:Number(x.querySelector(".qty").value||0),price:Number(x.querySelector(".price").value||0)})).filter(x=>x.name);
+}
+function itemTotal(v){return (v.items||[]).reduce((s,x)=>s+Number(x.qty||0)*Number(x.price||0),0)}
+function grand(v){return itemTotal(v)+Number(v.labor||0)}
+
+function saveVoucher(){
+ const items=getItems();
+ if(!items.length){alert("ပြုပြင် / ပစ္စည်း အနည်းဆုံး ၁ ခု ထည့်ပါ");return}
+ const obj={id:editingId||crypto.randomUUID(),no:$("no").value,date:$("date").value,carNo:$("carNo").value.trim(),customer:$("customer").value.trim(),items,labor:Number($("labor").value||0),note:$("note").value.trim(),paid:$("paid").checked};
+ if(editingId){
+   const old=data.find(v=>v.id===editingId);
+   if(old?.paid){alert("ငွေရှင်းပြီးဘောင်ချာကို ပြန်ပြင်လို့မရပါ");return}
+   data=data.map(v=>v.id===editingId?obj:v);
+ }else data.push(obj);
+ save();renderAll();resetForm();alert("သိမ်းပြီးပါပြီ");
+}
+function editVoucher(id){
+ const v=data.find(x=>x.id===id);if(!v)return;
+ if(v.paid){alert("ငွေရှင်းပြီးဘောင်ချာကို Edit မလုပ်နိုင်ပါ");return}
+ editingId=id;$("no").value=v.no;$("date").value=v.date;$("carNo").value=v.carNo;$("customer").value=v.customer;$("labor").value=v.labor||0;$("note").value=v.note||"";$("paid").checked=false;
+ $("items").innerHTML="";(v.items||[]).forEach(addItem);
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function deleteVoucher(id){
+ const v=data.find(x=>x.id===id);if(!v)return;
+ if(v.paid){alert("ငွေရှင်းပြီးဘောင်ချာကို Delete မလုပ်နိုင်ပါ");return}
+ if(confirm("ဒီဘောင်ချာကို ဖျက်မလား?")){data=data.filter(x=>x.id!==id);save();renderAll();resetForm()}
+}
+function renderVouchers(){
+ const q=$("search").value.toLowerCase().trim();
+ const arr=[...data].sort((a,b)=>String(b.date).localeCompare(a.date)||Number(b.no)-Number(a.no)).filter(v=>[v.no,v.date,v.carNo,v.customer].join(" ").toLowerCase().includes(q));
+ if(!arr.length){$("voucherList").innerHTML='<div class="empty">ဘောင်ချာ မရှိသေးပါ</div>';return}
+ $("voucherList").innerHTML=arr.map(v=>`<div class="item ${v.paid?'locked':''}">
+ <div class="row"><b>ဘောင်ချာ #${esc(v.no)}</b><span class="badge ${v.paid?'paid':''}">${v.paid?'✓ ငွေရှင်းပြီး':'မရှင်းရသေး'}</span><span class="right">${esc(v.date)}</span></div>
+ <div style="margin-top:5px">🚗 ${esc(v.carNo||"-")} &nbsp; 👤 ${esc(v.customer||"-")}</div>
+ <div class="muted" style="margin-top:5px">${(v.items||[]).map(i=>esc(i.name)+" × "+i.qty+" = "+money(i.qty*i.price)).join(" • ")}</div>
+ <div style="margin-top:7px"><span>ပစ္စည်း/ပြုပြင်: <b>${money(itemTotal(v))}</b></span> &nbsp; <span>လက်ခ: <b>${money(v.labor)}</b></span> &nbsp; <span class="total">စုစုပေါင်း: ${money(grand(v))}</span></div>
+ ${v.note?`<div class="muted">မှတ်ချက်: ${esc(v.note)}</div>`:""}
+ <div class="row" style="margin-top:8px">${v.paid?'<span class="muted">🔒 ငွေရှင်းပြီး — ပြင်/ဖျက် မရ</span>':`<button class="secondary" onclick="editVoucher('${v.id}')">Edit</button><button class="danger" onclick="deleteVoucher('${v.id}')">Delete</button>`}</div>
+ </div>`).join("");
+}
+function setLaborMode(type,on){
+ laborMode[type]=on;
+ renderAll();
+}
+function renderMonthly(){
+ const m=$("monthPick").value;if(!m){$("monthlySummary").innerHTML="လ ရွေးပါ";return}
+ const arr=data.filter(v=>String(v.date).slice(0,7)===m);
+ const item=arr.reduce((s,v)=>s+itemTotal(v),0), labor=arr.reduce((s,v)=>s+Number(v.labor||0),0), total=item+labor;
+ $("monthAllBtn").className=laborMode.month?"secondary":"primary";$("monthLaborBtn").className=laborMode.month?"primary":"secondary";
+ if(laborMode.month){
+   $("monthlySummary").innerHTML=`<div class="total">လက်ခစုစုပေါင်း: ${money(labor)}</div><div class="muted" style="margin:5px 0 10px">ဘောင်ချာ ${arr.length} ခု</div>`;
+ }else{
+   $("monthlySummary").innerHTML=`<div class="grid"><div class="card"><div class="muted">ပစ္စည်း/ပြုပြင်</div><div class="total">${money(item)}</div></div><div class="card"><div class="muted">လက်ခ</div><div class="total">${money(labor)}</div></div></div><div class="total">စုစုပေါင်း: ${money(total)}</div>`;
+ }
+ $("monthlySummary").innerHTML+=arr.length?`<div style="overflow:auto;margin-top:12px"><table><tr><th>ရက်စွဲ</th><th>ဘောင်ချာ</th><th>ကား</th><th>လက်ခ</th><th>${laborMode.month?"":"စုစုပေါင်း"}</th></tr>${arr.sort((a,b)=>a.date.localeCompare(b.date)).map(v=>`<tr><td>${esc(v.date)}</td><td>#${esc(v.no)}</td><td>${esc(v.carNo)}</td><td>${money(v.labor)}</td><td>${laborMode.month?"":money(grand(v))}</td></tr>`).join("")}</table></div>`:'<div class="empty">ဒီလအတွက် စာရင်းမရှိပါ</div>';
+}
+function renderYearly(){
+ const y=String($("yearPick").value);const arr=data.filter(v=>String(v.date).slice(0,4)===y);
+ const item=arr.reduce((s,v)=>s+itemTotal(v),0), labor=arr.reduce((s,v)=>s+Number(v.labor||0),0), total=item+labor;
+ $("yearAllBtn").className=laborMode.year?"secondary":"primary";$("yearLaborBtn").className=laborMode.year?"primary":"secondary";
+ let monthly=Array.from({length:12},(_,i)=>{let mm=String(i+1).padStart(2,"0"),a=arr.filter(v=>String(v.date).slice(5,7)===mm);return {m:mm,a,item:a.reduce((s,v)=>s+itemTotal(v),0),labor:a.reduce((s,v)=>s+Number(v.labor||0),0)} }).filter(x=>x.a.length);
+ if(laborMode.year)$("yearlySummary").innerHTML=`<div class="total">နှစ်အတွက် လက်ခစုစုပေါင်း: ${money(labor)}</div><div class="muted" style="margin:5px 0 10px">ဘောင်ချာ ${arr.length} ခု</div>`;
+ else $("yearlySummary").innerHTML=`<div class="grid"><div class="card"><div class="muted">ပစ္စည်း/ပြုပြင်</div><div class="total">${money(item)}</div></div><div class="card"><div class="muted">လက်ခ</div><div class="total">${money(labor)}</div></div></div><div class="total">နှစ်စုစုပေါင်း: ${money(total)}</div>`;
+ $("yearlySummary").innerHTML+=monthly.length?`<div style="overflow:auto;margin-top:12px"><table><tr><th>လ</th><th>ဘောင်ချာ</th><th>လက်ခ</th><th>${laborMode.year?"":"ပစ္စည်း/ပြုပြင်"}</th><th>${laborMode.year?"":"စုစုပေါင်း"}</th></tr>${monthly.map(x=>`<tr><td>${y}-${x.m}</td><td>${x.a.length}</td><td>${money(x.labor)}</td><td>${laborMode.year?"":money(x.item)}</td><td>${laborMode.year?"":money(x.item+x.labor)}</td></tr>`).join("")}</table></div>`:'<div class="empty">ဒီနှစ်အတွက် စာရင်းမရှိပါ</div>';
+}
+function renderAll(){renderVouchers();renderMonthly();renderYearly()}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));b.classList.add("active");$(b.dataset.view).classList.add("active")});
+$("date").value=today();$("monthPick").value=today().slice(0,7);$("yearPick").value=new Date().getFullYear();resetForm();renderAll();
+
+if("serviceWorker" in navigator && location.protocol!=="file:"){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+</script>
+</body></html>
