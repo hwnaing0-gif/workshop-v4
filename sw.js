@@ -1,4 +1,4 @@
-const CACHE_NAME = "ko-kyat-v7";
+const CACHE_NAME = "ko-kyat-v8";
 
 const STATIC_ASSETS = [
   "./",
