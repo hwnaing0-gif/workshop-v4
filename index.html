@@ -2,229 +2,4222 @@
 <html lang="my">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
 <meta name="theme-color" content="#168a4a">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon-192.png" type="image/png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="ကိုကြက်ဝပ်ရှော့">
+
 <title>ကိုကြက် ကားဝပ်ရှော့</title>
+
 <style>
-:root{--g:#168a4a;--gd:#0e6d39;--bg:#f4faf6;--card:#fff;--line:#dbe9df;--text:#173323;--muted:#6b7d72;--danger:#c62828}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans Myanmar","Myanmar Text",system-ui,sans-serif}
-header{background:var(--g);color:white;padding:16px 14px;position:sticky;top:0;z-index:5;box-shadow:0 2px 8px #0002}
-h1{font-size:21px;margin:0 0 4px}.sub{font-size:12px;opacity:.9}
-.tabs{display:flex;gap:5px;background:#fff;padding:7px;position:sticky;top:73px;z-index:4;box-shadow:0 1px 5px #0001;overflow:auto}
-.tab{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 11px;white-space:nowrap;font-size:13px}.tab.active{background:var(--g);color:#fff;border-color:var(--g)}
-main{max-width:900px;margin:auto;padding:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px;margin-bottom:12px;box-shadow:0 1px 4px #00000008}
-label{display:block;font-size:13px;margin:8px 0 5px;font-weight:600}input,select,textarea{width:100%;padding:10px;border:1px solid #cbdcd0;border-radius:9px;font:inherit;background:#fff}textarea{min-height:70px;resize:vertical}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}@media(max-width:520px){.grid{grid-template-columns:1fr}}
-button{border:0;border-radius:9px;padding:10px 13px;font:inherit;cursor:pointer}.primary{background:var(--g);color:white}.secondary{background:#eaf5ee;color:var(--gd)}.danger{background:#ffeded;color:var(--danger)}.row{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.right{margin-left:auto}
-.item{border:1px solid var(--line);padding:10px;border-radius:10px;margin-top:8px;background:#fbfefc}.itemgrid{display:grid;grid-template-columns:1fr 90px 120px auto;gap:7px;align-items:end}@media(max-width:650px){.itemgrid{grid-template-columns:1fr 1fr}.itemgrid .iname{grid-column:1/-1}}
-table{width:100%;border-collapse:collapse;font-size:12px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{background:#f0f8f3}.total{font-size:18px;font-weight:800;color:var(--gd)}.muted{color:var(--muted);font-size:12px}.badge{display:inline-block;border-radius:20px;padding:4px 8px;font-size:11px;background:#fff3cd;color:#7a5b00}.paid{background:#dff5e7;color:#146b37}.locked{opacity:.65}.section-title{font-weight:800;font-size:16px;margin-bottom:8px}.empty{text-align:center;color:var(--muted);padding:25px}.view{display:none}.view.active{display:block}.notice{padding:10px;border-radius:9px;background:#fff8df;border:1px solid #f0df9a;font-size:12px}
-@media print{body{background:white}.no-print{display:none!important}.print-area{display:block!important}.print-receipt{width:148mm;min-height:210mm;margin:auto;padding:8mm;font-family:"Noto Sans Myanmar","Myanmar Text",sans-serif;color:#111}.print-receipt h2{text-align:center;margin:0 0 3mm}.print-receipt .head{text-align:center;font-size:12px;margin-bottom:5mm}.print-receipt .meta{display:grid;grid-template-columns:1fr 1fr;gap:3mm;font-size:12px;margin-bottom:4mm}.print-receipt table{font-size:11px;border:1px solid #222}.print-receipt th,.print-receipt td{border:1px solid #222;padding:2mm}.print-receipt .money{text-align:right}.print-receipt .sum{margin-top:4mm;margin-left:auto;width:65%;font-size:12px}.print-receipt .sig{margin-top:14mm;text-align:right}.print-area{display:none}}
+
+:root{
+  --g:#168a4a;
+  --gd:#0e6d39;
+  --bg:#f4faf6;
+  --card:#fff;
+  --line:#dbe9df;
+  --text:#173323;
+  --muted:#6b7d72;
+  --danger:#c62828;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:
+    "Noto Sans Myanmar",
+    "Myanmar Text",
+    system-ui,
+    sans-serif;
+}
+
+header{
+  background:var(--g);
+  color:white;
+  padding:16px 14px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 8px #0002;
+}
+
+h1{
+  font-size:21px;
+  margin:0 0 4px;
+}
+
+.sub{
+  font-size:12px;
+  opacity:.9;
+}
+
+.tabs{
+  display:flex;
+  gap:5px;
+  background:#fff;
+  padding:7px;
+  position:sticky;
+  top:73px;
+  z-index:9;
+  box-shadow:0 1px 5px #0001;
+  overflow:auto;
+}
+
+.tab{
+  border:1px solid var(--line);
+  background:white;
+  border-radius:9px;
+  padding:9px 11px;
+  white-space:nowrap;
+  font-size:13px;
+}
+
+.tab.active{
+  background:var(--g);
+  color:white;
+  border-color:var(--g);
+}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:12px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:13px;
+  margin-bottom:12px;
+  box-shadow:0 1px 4px #00000008;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  margin:8px 0 5px;
+  font-weight:600;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #cbdcd0;
+  border-radius:9px;
+  font:inherit;
+  background:#fff;
+}
+
+textarea{
+  min-height:70px;
+  resize:vertical;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+
+@media(max-width:520px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:10px 13px;
+  font:inherit;
+  cursor:pointer;
+}
+
+button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+.primary{
+  background:var(--g);
+  color:white;
+}
+
+.secondary{
+  background:#eaf5ee;
+  color:var(--gd);
+}
+
+.danger{
+  background:#ffeded;
+  color:var(--danger);
+}
+
+.row{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.right{
+  margin-left:auto;
+}
+
+.item{
+  border:1px solid var(--line);
+  padding:10px;
+  border-radius:10px;
+  margin-top:8px;
+  background:#fbfefc;
+}
+
+.itemgrid{
+  display:grid;
+  grid-template-columns:1fr 90px 120px auto;
+  gap:7px;
+  align-items:end;
+}
+
+@media(max-width:650px){
+
+  .itemgrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .itemgrid .iname{
+    grid-column:1/-1;
+  }
+
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+
+th,
+td{
+  border-bottom:1px solid var(--line);
+  padding:8px;
+  text-align:left;
+  vertical-align:top;
+}
+
+th{
+  background:#f0f8f3;
+}
+
+.total{
+  font-size:18px;
+  font-weight:800;
+  color:var(--gd);
+}
+
+.muted{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.badge{
+  display:inline-block;
+  border-radius:20px;
+  padding:4px 8px;
+  font-size:11px;
+  background:#fff3cd;
+  color:#7a5b00;
+}
+
+.paid{
+  background:#dff5e7;
+  color:#146b37;
+}
+
+.locked{
+  opacity:.65;
+}
+
+.section-title{
+  font-weight:800;
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.empty{
+  text-align:center;
+  color:var(--muted);
+  padding:25px;
+}
+
+.view{
+  display:none;
+}
+
+.view.active{
+  display:block;
+}
+
+.notice{
+  padding:10px;
+  border-radius:9px;
+  background:#fff8df;
+  border:1px solid #f0df9a;
+  font-size:12px;
+}
+
+.editing{
+  background:#fff8df;
+  border:1px solid #e6ce75;
+  padding:10px;
+  border-radius:9px;
+  margin-bottom:10px;
+}
+
+.db-status{
+  font-size:11px;
+  padding:5px 8px;
+  border-radius:20px;
+  background:#dff5e7;
+  color:#146b37;
+}
+
+.backup-card{
+  margin-top:10px;
+}
+
+.loading{
+  text-align:center;
+  padding:25px;
+  color:var(--muted);
+}
+
+/* PRINT */
+
+@media print{
+
+  body{
+    background:white;
+  }
+
+  .no-print{
+    display:none!important;
+  }
+
+  .print-receipt{
+    width:148mm;
+    min-height:210mm;
+    margin:auto;
+    padding:8mm;
+    font-family:
+      "Noto Sans Myanmar",
+      "Myanmar Text",
+      sans-serif;
+    color:#111;
+  }
+
+  .print-receipt h2{
+    text-align:center;
+    margin:0 0 3mm;
+  }
+
+  .print-receipt .head{
+    text-align:center;
+    font-size:12px;
+    margin-bottom:5mm;
+  }
+
+  .print-receipt .meta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3mm;
+    font-size:12px;
+    margin-bottom:4mm;
+  }
+
+  .print-receipt table{
+    font-size:11px;
+    border:1px solid #222;
+  }
+
+  .print-receipt th,
+  .print-receipt td{
+    border:1px solid #222;
+    padding:2mm;
+  }
+
+  .print-receipt .money{
+    text-align:right;
+  }
+
+  .print-receipt .sum{
+    margin-top:4mm;
+    margin-left:auto;
+    width:65%;
+    font-size:12px;
+  }
+
+  .print-receipt .sig{
+    margin-top:14mm;
+    text-align:right;
+  }
+
+}
+
 </style>
 </head>
+
 <body>
-<header><h1>ကိုကြက် ကားဝပ်ရှော့</h1><div class="sub">ဘောင်ချာစာရင်း • ဖုန်းထဲ Local Storage</div></header>
+
+<header>
+
+  <div class="row">
+
+    <div>
+      <h1>ကိုကြက် ကားဝပ်ရှော့</h1>
+
+      <div class="sub">
+        ဘောင်ချာစာရင်း
+      </div>
+    </div>
+
+    <span
+      id="dbStatus"
+      class="db-status"
+    >
+      DB ချိတ်နေသည်...
+    </span>
+
+  </div>
+
+</header>
+
+
 <div class="tabs">
-<button class="tab active" data-view="vouchers">ဘောင်ချာ</button>
-<button class="tab" data-view="monthly">လချုပ်</button>
-<button class="tab" data-view="yearly">နှစ်ချုပ်</button>
+
+  <button
+    class="tab active"
+    data-view="vouchers"
+  >
+    ဘောင်ချာ
+  </button>
+
+  <button
+    class="tab"
+    data-view="monthly"
+  >
+    လချုပ်
+  </button>
+
+  <button
+    class="tab"
+    data-view="yearly"
+  >
+    နှစ်ချုပ်
+  </button>
+
+  <button
+    class="tab"
+    data-view="backup"
+  >
+    Backup
+  </button>
+
 </div>
+
 
 <main>
-<section id="vouchers" class="view active">
-<div class="card">
-<div class="section-title">ဘောင်ချာအသစ်</div>
-<div class="grid">
-<div><label>ဘောင်ချာနံပါတ် (Auto)</label><input id="no" readonly></div>
-<div><label>ရက်စွဲ</label><input id="date" type="date"></div>
-<div><label>ကားနံပါတ်</label><input id="carNo" placeholder="ဥပမာ 3H/1234"></div>
-<div><label>ပိုင်ရှင်အမည်</label><input id="customer" placeholder="အမည်"></div>
-</div>
 
-<div style="margin-top:13px;font-weight:800">ပြုပြင် / ပစ္စည်း</div>
-<div id="items"></div>
-<button class="secondary" style="margin-top:8px" onclick="addItem()">＋ ပစ္စည်း/ပြုပြင်မှု ထည့်မယ်</button>
+<!-- =====================================================
+     VOUCHERS
+===================================================== -->
 
-<div style="margin-top:14px;font-weight:800">ပြုပြင်စစ်ဆေးလက်ခ</div>
-<div class="grid">
-<div><label>လက်ခ (ကျပ်)</label><input id="labor" type="number" min="0" value="0"></div>
-<div><label>ကြိုပေးငွေ / Advance (ကျပ်)</label><input id="advance" type="number" min="0" value="0"></div>
-<div><label>မှတ်ချက်</label><input id="note" placeholder="လိုအပ်ပါကရေးပါ"></div>
-</div>
-
-<div class="row" style="margin-top:12px">
-<label style="display:flex;gap:7px;align-items:center;font-weight:700;margin:0">
-<input id="paid" type="checkbox" style="width:auto"> ငွေရှင်းပြီး
-</label>
-</div>
-<div class="notice" style="margin-top:10px">⚠️ “ငွေရှင်းပြီး” အဖြစ် သိမ်းပါက Advance ကို စုစုပေါင်းအတိုင်းထားပြီး အဲဒီဘောင်ချာကို Edit / Delete မလုပ်နိုင်တော့ပါ။ မရှင်းရသေးဘောင်ချာကိုတော့ Edit / Delete လုပ်နိုင်ပါတယ်။</div>
-<div class="row" style="margin-top:12px">
-<button class="primary" onclick="saveVoucher()">သိမ်းမယ်</button>
-<button class="secondary" onclick="resetForm()">ရှင်းမယ်</button>
-</div>
-</div>
+<section
+  id="vouchers"
+  class="view active"
+>
 
 <div class="card">
-<div class="row"><div class="section-title">ဘောင်ချာစာရင်း</div><div class="right"><input id="search" placeholder="ရှာရန်..." oninput="renderVouchers()"></div></div>
-<div id="voucherList"></div>
+
+  <div
+    id="formTitle"
+    class="section-title"
+  >
+    ဘောင်ချာအသစ်
+  </div>
+
+  <div
+    id="editingNotice"
+    class="editing"
+    style="display:none"
+  >
+    ✏️ လက်ရှိဘောင်ချာကို ပြင်နေပါတယ်
+  </div>
+
+
+  <!-- BASIC INFO -->
+
+  <div class="grid">
+
+    <div>
+
+      <label>
+        ဘောင်ချာနံပါတ် (Auto)
+      </label>
+
+      <input
+        id="no"
+        readonly
+      >
+
+    </div>
+
+
+    <div>
+
+      <label>
+        ရက်စွဲ
+      </label>
+
+      <input
+        id="date"
+        type="date"
+      >
+
+    </div>
+
+
+    <div>
+
+      <label>
+        ကားနံပါတ်
+      </label>
+
+      <input
+        id="carNo"
+        placeholder="ဥပမာ 3H/1234"
+      >
+
+    </div>
+
+
+    <div>
+
+      <label>
+        ပိုင်ရှင်အမည်
+      </label>
+
+      <input
+        id="customer"
+        placeholder="အမည်"
+      >
+
+    </div>
+
+  </div>
+
+
+  <!-- ITEMS -->
+
+  <div
+    style="margin-top:13px;font-weight:800"
+  >
+    ပြုပြင် / ပစ္စည်း
+  </div>
+
+
+  <div id="items"></div>
+
+
+  <button
+    class="secondary"
+    style="margin-top:8px"
+    onclick="addItem()"
+  >
+    ＋ ပစ္စည်း/ပြုပြင်မှု ထည့်မယ်
+  </button>
+
+
+  <!-- LABOR -->
+
+  <div
+    style="margin-top:14px;font-weight:800"
+  >
+    ပြုပြင်စစ်ဆေးလက်ခ
+  </div>
+
+
+  <div class="grid">
+
+    <div>
+
+      <label>
+        လက်ခ (ကျပ်)
+      </label>
+
+      <input
+        id="labor"
+        type="number"
+        min="0"
+        value="0"
+      >
+
+    </div>
+
+
+    <div>
+
+      <label>
+        ကြိုပေးငွေ / Advance (ကျပ်)
+      </label>
+
+      <input
+        id="advance"
+        type="number"
+        min="0"
+        value="0"
+      >
+
+    </div>
+
+
+    <div>
+
+      <label>
+        မှတ်ချက်
+      </label>
+
+      <input
+        id="note"
+        placeholder="လိုအပ်ပါကရေးပါ"
+      >
+
+    </div>
+
+  </div>
+
+
+  <!-- PAID -->
+
+  <div
+    class="row"
+    style="margin-top:12px"
+  >
+
+    <label
+      style="
+        display:flex;
+        gap:7px;
+        align-items:center;
+        font-weight:700;
+        margin:0
+      "
+    >
+
+      <input
+        id="paid"
+        type="checkbox"
+        style="width:auto"
+      >
+
+      ငွေရှင်းပြီး
+
+    </label>
+
+  </div>
+
+
+  <div
+    class="notice"
+    style="margin-top:10px"
+  >
+    ⚠️ “ငွေရှင်းပြီး” အဖြစ် သိမ်းပါက
+    Edit / Delete မလုပ်နိုင်တော့ပါ။
+  </div>
+
+
+  <!-- BUTTONS -->
+
+  <div
+    class="row"
+    style="margin-top:12px"
+  >
+
+    <button
+      id="saveBtn"
+      class="primary"
+      onclick="saveVoucher()"
+    >
+      သိမ်းမယ်
+    </button>
+
+
+    <button
+      class="secondary"
+      onclick="resetForm()"
+    >
+      ရှင်းမယ်
+    </button>
+
+  </div>
+
 </div>
+
+
+<!-- =====================================================
+     VOUCHER LIST
+===================================================== -->
+
+<div class="card">
+
+  <div class="row">
+
+    <div class="section-title">
+      ဘောင်ချာစာရင်း
+    </div>
+
+    <div class="right">
+
+      <input
+        id="search"
+        placeholder="ရှာရန်..."
+        oninput="renderVouchers()"
+      >
+
+    </div>
+
+  </div>
+
+
+  <div id="voucherList"></div>
+
+</div>
+
 </section>
 
-<section id="monthly" class="view">
+
+<!-- =====================================================
+     MONTHLY
+===================================================== -->
+
+<section
+  id="monthly"
+  class="view"
+>
+
 <div class="card">
-<div class="row"><div class="section-title">လချုပ်</div><div class="right"><input id="monthPick" type="month" onchange="renderMonthly()"></div></div>
-<div class="row" style="margin-bottom:10px">
-<button id="monthAllBtn" class="primary" onclick="setLaborMode('month',false)">စုစုပေါင်း</button>
-<button id="monthLaborBtn" class="secondary" onclick="setLaborMode('month',true)">လက်ခပဲကြည့်</button>
+
+  <div class="row">
+
+    <div class="section-title">
+      လချုပ်
+    </div>
+
+    <div class="right">
+
+      <input
+        id="monthPick"
+        type="month"
+        onchange="renderMonthly()"
+      >
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="row"
+    style="margin-bottom:10px"
+  >
+
+    <button
+      id="monthAllBtn"
+      class="primary"
+      onclick="setLaborMode('month',false)"
+    >
+      စုစုပေါင်း
+    </button>
+
+
+    <button
+      id="monthLaborBtn"
+      class="secondary"
+      onclick="setLaborMode('month',true)"
+    >
+      လက်ခပဲကြည့်
+    </button>
+
+  </div>
+
+
+  <div id="monthlySummary"></div>
+
 </div>
-<div id="monthlySummary"></div>
-</div>
+
 </section>
 
-<section id="yearly" class="view">
+
+<!-- =====================================================
+     YEARLY
+===================================================== -->
+
+<section
+  id="yearly"
+  class="view"
+>
+
 <div class="card">
-<div class="row"><div class="section-title">နှစ်ချုပ်</div><div class="right"><input id="yearPick" type="number" min="2000" max="2100" onchange="renderYearly()"></div></div>
-<div class="row" style="margin-bottom:10px">
-<button id="yearAllBtn" class="primary" onclick="setLaborMode('year',false)">စုစုပေါင်း</button>
-<button id="yearLaborBtn" class="secondary" onclick="setLaborMode('year',true)">လက်ခပဲကြည့်</button>
+
+  <div class="row">
+
+    <div class="section-title">
+      နှစ်ချုပ်
+    </div>
+
+    <div class="right">
+
+      <input
+        id="yearPick"
+        type="number"
+        min="2000"
+        max="2100"
+        onchange="renderYearly()"
+      >
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="row"
+    style="margin-bottom:10px"
+  >
+
+    <button
+      id="yearAllBtn"
+      class="primary"
+      onclick="setLaborMode('year',false)"
+    >
+      စုစုပေါင်း
+    </button>
+
+
+    <button
+      id="yearLaborBtn"
+      class="secondary"
+      onclick="setLaborMode('year',true)"
+    >
+      လက်ခပဲကြည့်
+    </button>
+
+  </div>
+
+
+  <div id="yearlySummary"></div>
+
 </div>
-<div id="yearlySummary"></div>
-</div>
+
 </section>
+
+
+<!-- =====================================================
+     BACKUP
+===================================================== -->
+
+<section
+  id="backup"
+  class="view"
+>
+
+<div class="card">
+
+  <div class="section-title">
+    💾 Data Backup / Restore
+  </div>
+
+  <div class="notice">
+    Backup ဖိုင်ကို လုံခြုံတဲ့နေရာမှာ သိမ်းထားပါ။
+    Browser data ပျက်သွားပါက Backup ကနေ ပြန် Restore လုပ်နိုင်ပါတယ်။
+  </div>
+
+
+  <div
+    class="backup-card"
+  >
+
+    <button
+      class="primary"
+      onclick="backupData()"
+    >
+      ⬇️ Backup Data
+    </button>
+
+    <button
+      class="secondary"
+      onclick="document.getElementById('restoreFile').click()"
+    >
+      ⬆️ Restore Data
+    </button>
+
+    <input
+      id="restoreFile"
+      type="file"
+      accept=".json,application/json"
+      style="display:none"
+      onchange="restoreData(event)"
+    >
+
+  </div>
+
+
+  <div
+    class="card"
+    style="margin-top:12px"
+  >
+
+    <div class="muted">
+      လက်ရှိ Voucher အရေအတွက်
+    </div>
+
+    <div
+      id="backupCount"
+      class="total"
+    >
+      0
+    </div>
+
+  </div>
+
+
+  <div class="notice">
+
+    ⚠️ Restore လုပ်တဲ့အခါ လက်ရှိ data ကို
+    Backup ဖိုင်ထဲက data နဲ့ အစားထိုးပါမယ်။
+
+  </div>
+
+</div>
+
+</section>
+
 </main>
 
+
 <script>
-const KEY="koKyatCarWorkshop_v2";
-let data=JSON.parse(localStorage.getItem(KEY)||"[]");
-let editingId=null;
-let laborMode={month:false,year:false};
 
-const $=id=>document.getElementById(id);
-function today(){return new Date().toISOString().slice(0,10)}
-function money(n){return Number(n||0).toLocaleString("en-US")+" ကျပ်"}
-function save(){localStorage.setItem(KEY,JSON.stringify(data))}
-function nextNo(){
-  const saved=Number(localStorage.getItem("koKyatCarWorkshop_nextNo")||0);
-  const nums=data.map(v=>parseInt(String(v.no||"").replace(/\D/g,""),10)).filter(Number.isFinite);
-  const n=Math.max(saved, nums.length?Math.max(...nums):0)+1;
-  localStorage.setItem("koKyatCarWorkshop_nextNo",String(n));
-  return n;
+/* =====================================================
+   INDEXED DB
+===================================================== */
+
+const DB_NAME = "KoKyatCarWorkshopDB";
+
+const DB_VERSION = 1;
+
+const VOUCHER_STORE = "vouchers";
+
+const SETTINGS_STORE = "settings";
+
+let db = null;
+
+let data = [];
+
+let dbReady = false;
+
+
+/*
+  Open Database
+*/
+
+function openDB(){
+
+  return new Promise((resolve,reject)=>{
+
+    if(!("indexedDB" in window)){
+
+      reject(
+        new Error(
+          "ဒီ Browser မှာ IndexedDB မထောက်ပံ့ပါ"
+        )
+      );
+
+      return;
+
+    }
+
+
+    const request =
+      indexedDB.open(
+        DB_NAME,
+        DB_VERSION
+      );
+
+
+    request.onupgradeneeded =
+      function(event){
+
+        const database =
+          event.target.result;
+
+
+        /*
+          Voucher Store
+        */
+
+        if(
+          !database.objectStoreNames
+            .contains(VOUCHER_STORE)
+        ){
+
+          database.createObjectStore(
+            VOUCHER_STORE,
+            {
+              keyPath:"id"
+            }
+          );
+
+        }
+
+
+        /*
+          Settings Store
+        */
+
+        if(
+          !database.objectStoreNames
+            .contains(SETTINGS_STORE)
+        ){
+
+          database.createObjectStore(
+            SETTINGS_STORE,
+            {
+              keyPath:"key"
+            }
+          );
+
+        }
+
+      };
+
+
+    request.onsuccess =
+      function(event){
+
+        db =
+          event.target.result;
+
+
+        db.onversionchange =
+          function(){
+
+            db.close();
+
+          };
+
+
+        resolve(db);
+
+      };
+
+
+    request.onerror =
+      function(){
+
+        reject(
+          request.error
+        );
+
+      };
+
+  });
+
 }
-function resetForm(){
- editingId=null;$("no").value=nextNo();$("date").value=today();$("carNo").value="";$("customer").value="";$("labor").value=0;$("advance").value=0;$("note").value="";$("paid").checked=false;
- $("items").innerHTML="";addItem();
- document.querySelector(".section-title").textContent="ဘောင်ချာအသစ်";
+
+
+/* =====================================================
+   DATABASE HELPERS
+===================================================== */
+
+
+/*
+  Get all vouchers
+*/
+
+function dbGetAll(){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const tx =
+        db.transaction(
+          VOUCHER_STORE,
+          "readonly"
+        );
+
+
+      const store =
+        tx.objectStore(
+          VOUCHER_STORE
+        );
+
+
+      const request =
+        store.getAll();
+
+
+      request.onsuccess =
+        () => {
+
+          resolve(
+            Array.isArray(request.result)
+              ? request.result
+              : []
+          );
+
+        };
+
+
+      request.onerror =
+        () => {
+
+          reject(
+            request.error
+          );
+
+        };
+
+    }
+  );
+
 }
-function addItem(item={name:"",qty:1,price:0}){
- const wrap=document.createElement("div");wrap.className="item";
- wrap.innerHTML=`<div class="itemgrid">
- <div class="iname"><label>အမည်</label><input class="inamev" value="${esc(item.name)}" placeholder="ပစ္စည်း / ပြုပြင်မှု"></div>
- <div><label>အရေအတွက်</label><input class="qty" type="number" min="0" step="0.01" value="${item.qty}"></div>
- <div><label>တစ်ခုဈေး</label><input class="price" type="number" min="0" value="${item.price}"></div>
- <button class="danger" onclick="this.closest('.item').remove()">ဖျက်</button></div>`;
- $("items").appendChild(wrap);
+
+
+/*
+  Save / Update voucher
+*/
+
+function dbPutVoucher(voucher){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const tx =
+        db.transaction(
+          VOUCHER_STORE,
+          "readwrite"
+        );
+
+
+      const store =
+        tx.objectStore(
+          VOUCHER_STORE
+        );
+
+
+      const request =
+        store.put(voucher);
+
+
+      request.onsuccess =
+        () => resolve(true);
+
+
+      request.onerror =
+        () =>
+          reject(
+            request.error
+          );
+
+    }
+  );
+
 }
-function esc(s){return String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll('"',"&quot;")}
+
+
+/*
+  Delete voucher
+*/
+
+function dbDeleteVoucher(id){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const tx =
+        db.transaction(
+          VOUCHER_STORE,
+          "readwrite"
+        );
+
+
+      const store =
+        tx.objectStore(
+          VOUCHER_STORE
+        );
+
+
+      const request =
+        store.delete(id);
+
+
+      request.onsuccess =
+        () => resolve(true);
+
+
+      request.onerror =
+        () =>
+          reject(
+            request.error
+          );
+
+    }
+  );
+
+}
+
+
+/*
+  Clear all vouchers
+*/
+
+function dbClearVouchers(){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const tx =
+        db.transaction(
+          VOUCHER_STORE,
+          "readwrite"
+        );
+
+
+      const store =
+        tx.objectStore(
+          VOUCHER_STORE
+        );
+
+
+      const request =
+        store.clear();
+
+
+      request.onsuccess =
+        () => resolve(true);
+
+
+      request.onerror =
+        () =>
+          reject(
+            request.error
+          );
+
+    }
+  );
+
+}
+
+
+/*
+  Get setting
+*/
+
+function dbGetSetting(key){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const tx =
+        db.transaction(
+          SETTINGS_STORE,
+          "readonly"
+        );
+
+
+      const store =
+        tx.objectStore(
+          SETTINGS_STORE
+        );
+
+
+      const request =
+        store.get(key);
+
+
+      request.onsuccess =
+        () => {
+
+          resolve(
+            request.result
+              ? request.result.value
+              : null
+          );
+
+        };
+
+
+      request.onerror =
+        () =>
+          reject(
+            request.error
+          );
+
+    }
+  );
+
+}
+
+
+/*
+  Save setting
+*/
+
+function dbSetSetting(
+  key,
+  value
+){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const tx =
+        db.transaction(
+          SETTINGS_STORE,
+          "readwrite"
+        );
+
+
+      const store =
+        tx.objectStore(
+          SETTINGS_STORE
+        );
+
+
+      const request =
+        store.put({
+          key:key,
+          value:value
+        });
+
+
+      request.onsuccess =
+        () => resolve(true);
+
+
+      request.onerror =
+        () =>
+          reject(
+            request.error
+          );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   VOUCHER NUMBER
+===================================================== */
+
+
+/*
+  Read next voucher number
+  without increasing it.
+*/
+
+async function peekNextNo(){
+
+  let next =
+    await dbGetSetting(
+      "nextVoucherNo"
+    );
+
+
+  next =
+    Number(next);
+
+
+  if(
+    !Number.isFinite(next) ||
+    next < 1
+  ){
+
+    next = 1;
+
+    await dbSetSetting(
+      "nextVoucherNo",
+      next
+    );
+
+  }
+
+
+  return String(next);
+
+}
+
+
+/*
+  Increase next number
+*/
+
+async function consumeNextNo(){
+
+  let next =
+    await dbGetSetting(
+      "nextVoucherNo"
+    );
+
+
+  next =
+    Number(next);
+
+
+  if(
+    !Number.isFinite(next) ||
+    next < 1
+  ){
+
+    next = 1;
+
+  }
+
+
+  await dbSetSetting(
+    "nextVoucherNo",
+    next + 1
+  );
+
+
+  return String(next);
+
+}
+
+
+/*
+  Restore number sequence
+*/
+
+async function resetNextNoFromData(){
+
+  const nums =
+    data
+      .map(
+        v =>
+          parseInt(
+            String(v.no || ""),
+            10
+          )
+      )
+      .filter(
+        Number.isFinite
+      );
+
+
+  const max =
+    nums.length
+      ? Math.max(...nums)
+      : 0;
+
+
+  await dbSetSetting(
+    "nextVoucherNo",
+    max + 1
+  );
+
+}
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+const $ =
+  id =>
+    document.getElementById(id);
+
+
+function today(){
+
+  const d =
+    new Date();
+
+
+  const year =
+    d.getFullYear();
+
+
+  const month =
+    String(
+      d.getMonth()+1
+    ).padStart(2,"0");
+
+
+  const day =
+    String(
+      d.getDate()
+    ).padStart(2,"0");
+
+
+  return `${year}-${month}-${day}`;
+
+}
+
+
+function money(n){
+
+  return Number(n || 0)
+    .toLocaleString("en-US")
+    + " ကျပ်";
+
+}
+
+
+function esc(s){
+
+  return String(
+    s == null
+      ? ""
+      : s
+  )
+
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+
+  .replace(
+    /</g,
+    "&lt;"
+  )
+
+  .replace(
+    />/g,
+    "&gt;"
+  )
+
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* =====================================================
+   FORM STATE
+===================================================== */
+
+let editingId = null;
+
+let laborMode = {
+
+  month:false,
+
+  year:false
+
+};
+
+
+/* =====================================================
+   RESET FORM
+===================================================== */
+
+async function resetForm(){
+
+  editingId = null;
+
+
+  $("formTitle")
+    .textContent =
+    "ဘောင်ချာအသစ်";
+
+
+  $("editingNotice")
+    .style.display =
+    "none";
+
+
+  $("saveBtn")
+    .textContent =
+    "သိမ်းမယ်";
+
+
+  if(dbReady){
+
+    $("no").value =
+      await peekNextNo();
+
+  }else{
+
+    $("no").value =
+      "1";
+
+  }
+
+
+  $("date").value =
+    today();
+
+
+  $("carNo").value =
+    "";
+
+
+  $("customer").value =
+    "";
+
+
+  $("labor").value =
+    0;
+
+
+  $("advance").value =
+    0;
+
+
+  $("note").value =
+    "";
+
+
+  $("paid").checked =
+    false;
+
+
+  $("items").innerHTML =
+    "";
+
+
+  addItem();
+
+}
+
+
+/* =====================================================
+   ADD ITEM
+===================================================== */
+
+function addItem(
+  item = {
+    name:"",
+    qty:1,
+    price:0
+  }
+){
+
+  const wrap =
+    document.createElement("div");
+
+
+  wrap.className =
+    "item";
+
+
+  wrap.innerHTML = `
+
+    <div class="itemgrid">
+
+      <div class="iname">
+
+        <label>
+          အမည်
+        </label>
+
+        <input
+          class="inamev"
+          value="${esc(item.name)}"
+          placeholder="ပစ္စည်း / ပြုပြင်မှု"
+        >
+
+      </div>
+
+
+      <div>
+
+        <label>
+          အရေအတွက်
+        </label>
+
+        <input
+          class="qty"
+          type="number"
+          min="0"
+          step="0.01"
+          value="${Number(item.qty || 0)}"
+        >
+
+      </div>
+
+
+      <div>
+
+        <label>
+          တစ်ခုဈေး
+        </label>
+
+        <input
+          class="price"
+          type="number"
+          min="0"
+          value="${Number(item.price || 0)}"
+        >
+
+      </div>
+
+
+      <button
+        class="danger"
+        type="button"
+        onclick="this.closest('.item').remove()"
+      >
+        ဖျက်
+      </button>
+
+    </div>
+
+  `;
+
+
+  $("items")
+    .appendChild(wrap);
+
+}
+
+
+/* =====================================================
+   GET ITEMS
+===================================================== */
+
 function getItems(){
- return [...document.querySelectorAll(".item")].map(x=>({name:x.querySelector(".inamev").value.trim(),qty:Number(x.querySelector(".qty").value||0),price:Number(x.querySelector(".price").value||0)})).filter(x=>x.name);
-}
-function itemTotal(v){return (v.items||[]).reduce((s,x)=>s+Number(x.qty||0)*Number(x.price||0),0)}
-function grand(v){return itemTotal(v)+Number(v.labor||0)}
 
-function saveVoucher(){
- const items=getItems();
- if(!items.length){alert("ပြုပြင် / ပစ္စည်း အနည်းဆုံး ၁ ခု ထည့်ပါ");return}
- const total = items.reduce((s,x)=>s+Number(x.qty||0)*Number(x.price||0),0) + Number($("labor").value||0);
-let advance = Math.max(0, Number($("advance").value||0));
-let paid = $("paid").checked;
-if(paid){ advance = total; $("advance").value = total; }
-if(advance > total) advance = total;
-const obj={id:editingId||("v"+Date.now()+"_"+Math.random().toString(36).slice(2)),no:$("no").value,date:$("date").value,carNo:$("carNo").value.trim(),customer:$("customer").value.trim(),items,labor:Number($("labor").value||0),advance,note:$("note").value.trim(),paid};
- if(editingId){
-   const old=data.find(v=>v.id===editingId);
-   if(old?.paid){alert("ငွေရှင်းပြီးဘောင်ချာကို ပြန်ပြင်လို့မရပါ");return}
-   data=data.map(v=>v.id===editingId?obj:v);
- }else data.push(obj);
- save();editingId=null;renderAll();resetForm();alert("သိမ်းပြီးပါပြီ");
+  return [
+
+    ...document.querySelectorAll(
+      "#items .item"
+    )
+
+  ]
+
+  .map(
+    x => ({
+
+      name:
+        x.querySelector(
+          ".inamev"
+        ).value.trim(),
+
+      qty:
+        Number(
+          x.querySelector(
+            ".qty"
+          ).value || 0
+        ),
+
+      price:
+        Number(
+          x.querySelector(
+            ".price"
+          ).value || 0
+        )
+
+    })
+  )
+
+  .filter(
+    x =>
+      x.name
+  );
+
 }
-function editVoucher(id){
- const v=data.find(x=>x.id===id);if(!v)return;
- if(v.paid){alert("ငွေရှင်းပြီးဘောင်ချာကို Edit မလုပ်နိုင်ပါ");return}
- editingId=id;$("no").value=v.no;$("date").value=v.date;$("carNo").value=v.carNo;$("customer").value=v.customer;$("labor").value=v.labor||0;$("advance").value=v.advance||0;$("note").value=v.note||"";$("paid").checked=false;
- $("items").innerHTML="";(v.items||[]).forEach(addItem);
- window.scrollTo({top:0,behavior:"smooth"});
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+function itemTotal(v){
+
+  return (v.items || [])
+    .reduce(
+
+      (sum,item) =>
+
+        sum +
+        Number(item.qty || 0) *
+        Number(item.price || 0),
+
+      0
+
+    );
+
 }
-function deleteVoucher(id){
- const v=data.find(x=>x.id===id);if(!v)return;
- if(v.paid){alert("ငွေရှင်းပြီးဘောင်ချာကို Delete မလုပ်နိုင်ပါ");return}
- if(confirm("ဒီဘောင်ချာကို ဖျက်မလား?")){data=data.filter(x=>x.id!==id);save();renderAll();resetForm()}
+
+
+function grand(v){
+
+  return (
+    itemTotal(v) +
+    Number(v.labor || 0)
+  );
+
 }
+
+
+/* =====================================================
+   SAVE VOUCHER
+===================================================== */
+
+async function saveVoucher(){
+
+  if(!dbReady){
+
+    alert(
+      "Database မပြင်ဆင်ရသေးပါ။ ခဏစောင့်ပြီး ထပ်ကြိုးစားပါ။"
+    );
+
+    return;
+
+  }
+
+
+  const saveBtn =
+    $("saveBtn");
+
+
+  saveBtn.disabled =
+    true;
+
+
+  try{
+
+    const items =
+      getItems();
+
+
+    if(!items.length){
+
+      alert(
+        "ပြုပြင် / ပစ္စည်း အနည်းဆုံး ၁ ခု ထည့်ပါ"
+      );
+
+      return;
+
+    }
+
+
+    const labor =
+      Math.max(
+        0,
+        Number(
+          $("labor").value || 0
+        )
+      );
+
+
+    const itemAmount =
+      items.reduce(
+
+        (sum,item) =>
+
+          sum +
+          Number(item.qty || 0) *
+          Number(item.price || 0),
+
+        0
+
+      );
+
+
+    const total =
+      itemAmount + labor;
+
+
+    let advance =
+      Math.max(
+        0,
+        Number(
+          $("advance").value || 0
+        )
+      );
+
+
+    const paid =
+      $("paid").checked;
+
+
+    /*
+      Paid ဆိုရင်
+      Advance = Total
+    */
+
+    advance = Math.min(advance, total);
+
+
+    /* =================================================
+       EDIT EXISTING
+    ================================================= */
+
+    if(editingId !== null){
+
+      const index =
+        data.findIndex(
+          v =>
+            v.id === editingId
+        );
+
+
+      if(index === -1){
+
+        alert(
+          "ပြင်မယ့် ဘောင်ချာ မတွေ့ပါ"
+        );
+
+        await resetForm();
+
+        return;
+
+      }
+
+
+      const old =
+        data[index];
+
+
+      /*
+        Paid voucher
+        cannot edit
+      */
+
+      if(old.paid === true){
+
+        alert(
+          "ငွေရှင်းပြီးဘောင်ချာကို ပြန်ပြင်လို့မရပါ"
+        );
+
+        return;
+
+      }
+
+
+      const updated = {
+
+        ...old,
+
+        date:
+          $("date").value ||
+          today(),
+
+        carNo:
+          $("carNo")
+            .value
+            .trim(),
+
+        customer:
+          $("customer")
+            .value
+            .trim(),
+
+        items:
+          items,
+
+        labor:
+          labor,
+
+        advance:
+          advance,
+
+        note:
+          $("note")
+            .value
+            .trim(),
+
+        paid:
+          paid
+
+      };
+
+
+      /*
+        Save DB first.
+        Memory data update only
+        after successful DB save.
+      */
+
+      await dbPutVoucher(
+        updated
+      );
+
+
+      data[index] =
+        updated;
+
+
+      editingId =
+        null;
+
+
+      renderAll();
+
+      await resetForm();
+
+
+      alert(
+        "ဘောင်ချာ ပြင်ပြီးသိမ်းလိုက်ပါပြီ"
+      );
+
+
+      return;
+
+    }
+
+
+    /* =================================================
+       NEW VOUCHER
+    ================================================= */
+
+    let voucherNo =
+      $("no").value;
+
+
+    /*
+      Safety:
+      number မရှိရင် DB ကနေယူ
+    */
+
+    if(!voucherNo){
+
+      voucherNo =
+        await peekNextNo();
+
+    }
+
+
+    const newVoucher = {
+
+      id:
+        "v_" +
+        Date.now() +
+        "_" +
+        Math.random()
+          .toString(36)
+          .substring(2,8),
+
+
+      no:
+        String(voucherNo),
+
+
+      date:
+        $("date").value ||
+        today(),
+
+
+      carNo:
+        $("carNo")
+          .value
+          .trim(),
+
+
+      customer:
+        $("customer")
+          .value
+          .trim(),
+
+
+      items:
+        items,
+
+
+      labor:
+        labor,
+
+
+      advance:
+        advance,
+
+
+      note:
+        $("note")
+          .value
+          .trim(),
+
+
+      paid:
+        paid
+
+    };
+
+
+    /*
+      IMPORTANT
+
+      DB save first.
+    */
+
+    await dbPutVoucher(
+      newVoucher
+    );
+
+
+    data.push(
+      newVoucher
+    );
+
+
+    /*
+      Increase voucher number
+      only after successful save.
+    */
+
+    await consumeNextNo();
+
+
+    renderAll();
+
+
+    await resetForm();
+
+
+    alert(
+      "ဘောင်ချာ သိမ်းပြီးပါပြီ"
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "saveVoucher error:",
+      error
+    );
+
+
+    alert(
+      "သိမ်းရာမှာ Error ဖြစ်နေပါတယ်။\n" +
+      error.message
+    );
+
+  }finally{
+
+    saveBtn.disabled =
+      false;
+
+  }
+
+}
+
+
+/* =====================================================
+   EDIT VOUCHER
+===================================================== */
+
+async function editVoucher(id){
+
+  const v =
+    data.find(
+      x =>
+        x.id === id
+    );
+
+
+  if(!v){
+
+    alert(
+      "ဘောင်ချာ မတွေ့ပါ"
+    );
+
+    return;
+
+  }
+
+
+  if(v.paid === true){
+
+    alert(
+      "ငွေရှင်းပြီးဘောင်ချာကို Edit မလုပ်နိုင်ပါ"
+    );
+
+    return;
+
+  }
+
+
+  editingId =
+    v.id;
+
+
+  $("formTitle")
+    .textContent =
+    "ဘောင်ချာပြင်ရန်";
+
+
+  $("editingNotice")
+    .style.display =
+    "block";
+
+
+  $("saveBtn")
+    .textContent =
+    "ပြင်ပြီးသိမ်းမယ်";
+
+
+  $("no").value =
+    v.no || "";
+
+
+  $("date").value =
+    v.date || today();
+
+
+  $("carNo").value =
+    v.carNo || "";
+
+
+  $("customer").value =
+    v.customer || "";
+
+
+  $("labor").value =
+    Number(
+      v.labor || 0
+    );
+
+
+  $("advance").value =
+    Number(
+      v.advance || 0
+    );
+
+
+  $("note").value =
+    v.note || "";
+
+
+  /*
+    Editing an unpaid voucher.
+    Keep paid checkbox false initially.
+    User can choose paid while saving.
+  */
+
+  $("paid").checked =
+    false;
+
+
+  $("items").innerHTML =
+    "";
+
+
+  (v.items || [])
+    .forEach(
+      item =>
+        addItem(item)
+    );
+
+
+  window.scrollTo({
+
+    top:0,
+
+    behavior:"smooth"
+
+  });
+
+}
+
+
+/* =====================================================
+   DELETE VOUCHER
+===================================================== */
+
+async function deleteVoucher(id){
+
+  const v =
+    data.find(
+      x =>
+        x.id === id
+    );
+
+
+  if(!v){
+
+    return;
+
+  }
+
+
+  if(v.paid === true){
+
+    alert(
+      "ငွေရှင်းပြီးဘောင်ချာကို Delete မလုပ်နိုင်ပါ"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !confirm(
+      "ဒီဘောင်ချာကို ဖျက်မလား?"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  try{
+
+    await dbDeleteVoucher(
+      id
+    );
+
+
+    data =
+      data.filter(
+        x =>
+          x.id !== id
+      );
+
+
+    renderAll();
+
+    await resetForm();
+
+
+  }catch(error){
+
+    console.error(
+      error
+    );
+
+    alert(
+      "ဖျက်ရာမှာ Error ဖြစ်နေပါတယ်။"
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   RENDER VOUCHERS
+===================================================== */
+
 function renderVouchers(){
- const q=$("search").value.toLowerCase().trim();
- const arr=[...data].sort((a,b)=>String(b.date).localeCompare(a.date)||Number(b.no)-Number(a.no)).filter(v=>[v.no,v.date,v.carNo,v.customer].join(" ").toLowerCase().includes(q));
- if(!arr.length){$("voucherList").innerHTML='<div class="empty">ဘောင်ချာ မရှိသေးပါ</div>';return}
- $("voucherList").innerHTML=arr.map(v=>`<div class="item ${v.paid?'locked':''}">
- <div class="row"><b>ဘောင်ချာ #${esc(v.no)}</b><span class="badge ${v.paid?'paid':''}">${v.paid?'✓ ငွေရှင်းပြီး':'မရှင်းရသေး'}</span><span class="right">${esc(v.date)}</span></div>
- <div style="margin-top:5px">🚗 ${esc(v.carNo||"-")} &nbsp; 👤 ${esc(v.customer||"-")}</div>
- <div class="muted" style="margin-top:5px">${(v.items||[]).map(i=>esc(i.name)+" × "+i.qty+" = "+money(i.qty*i.price)).join(" • ")}</div>
- <div style="margin-top:7px"><span>ပစ္စည်း/ပြုပြင်: <b>${money(itemTotal(v))}</b></span> &nbsp; <span>လက်ခ: <b>${money(v.labor)}</b></span> &nbsp; <span class="total">စုစုပေါင်း: ${money(grand(v))}</span></div>
- <div class="muted" style="margin-top:4px">ကြိုပေး: ${money(v.advance||0)} • လက်ကျန်: ${money(Math.max(0,grand(v)-Number(v.advance||0)))}</div>
- ${v.note?`<div class="muted">မှတ်ချက်: ${esc(v.note)}</div>`:""}
- <div class="row" style="margin-top:8px"><button class="secondary" onclick="printVoucher('${v.id}')">🧾 PDF ထုတ်ရန်</button>${v.paid?'<span class="muted">🔒 ငွေရှင်းပြီး — ပြင်/ဖျက် မရ</span>':`<button class="secondary" onclick="editVoucher('${v.id}')">Edit</button><button class="danger" onclick="deleteVoucher('${v.id}')">Delete</button>`}</div>
- </div>`).join("");
-}
-function setLaborMode(type,on){
- laborMode[type]=on;
- renderAll();
-}
-function renderMonthly(){
- const m=$("monthPick").value;if(!m){$("monthlySummary").innerHTML="လ ရွေးပါ";return}
- const arr=data.filter(v=>String(v.date).slice(0,7)===m);
- const item=arr.reduce((s,v)=>s+itemTotal(v),0), labor=arr.reduce((s,v)=>s+Number(v.labor||0),0), total=item+labor;
- $("monthAllBtn").className=laborMode.month?"secondary":"primary";$("monthLaborBtn").className=laborMode.month?"primary":"secondary";
- if(laborMode.month){
-   $("monthlySummary").innerHTML=`<div class="total">လက်ခစုစုပေါင်း: ${money(labor)}</div><div class="muted" style="margin:5px 0 10px">ဘောင်ချာ ${arr.length} ခု</div>`;
- }else{
-   $("monthlySummary").innerHTML=`<div class="grid"><div class="card"><div class="muted">ပစ္စည်း/ပြုပြင်</div><div class="total">${money(item)}</div></div><div class="card"><div class="muted">လက်ခ</div><div class="total">${money(labor)}</div></div></div><div class="total">စုစုပေါင်း: ${money(total)}</div>`;
- }
- $("monthlySummary").innerHTML+=arr.length?`<div style="overflow:auto;margin-top:12px"><table><tr><th>ရက်စွဲ</th><th>ဘောင်ချာ</th><th>ကား</th><th>လက်ခ</th><th>${laborMode.month?"":"စုစုပေါင်း"}</th></tr>${arr.sort((a,b)=>a.date.localeCompare(b.date)).map(v=>`<tr><td>${esc(v.date)}</td><td>#${esc(v.no)}</td><td>${esc(v.carNo)}</td><td>${money(v.labor)}</td><td>${laborMode.month?"":money(grand(v))}</td></tr>`).join("")}</table></div>`:'<div class="empty">ဒီလအတွက် စာရင်းမရှိပါ</div>';
-}
-function renderYearly(){
- const y=String($("yearPick").value);const arr=data.filter(v=>String(v.date).slice(0,4)===y);
- const item=arr.reduce((s,v)=>s+itemTotal(v),0), labor=arr.reduce((s,v)=>s+Number(v.labor||0),0), total=item+labor;
- $("yearAllBtn").className=laborMode.year?"secondary":"primary";$("yearLaborBtn").className=laborMode.year?"primary":"secondary";
- let monthly=Array.from({length:12},(_,i)=>{let mm=String(i+1).padStart(2,"0"),a=arr.filter(v=>String(v.date).slice(5,7)===mm);return {m:mm,a,item:a.reduce((s,v)=>s+itemTotal(v),0),labor:a.reduce((s,v)=>s+Number(v.labor||0),0)} }).filter(x=>x.a.length);
- if(laborMode.year)$("yearlySummary").innerHTML=`<div class="total">နှစ်အတွက် လက်ခစုစုပေါင်း: ${money(labor)}</div><div class="muted" style="margin:5px 0 10px">ဘောင်ချာ ${arr.length} ခု</div>`;
- else $("yearlySummary").innerHTML=`<div class="grid"><div class="card"><div class="muted">ပစ္စည်း/ပြုပြင်</div><div class="total">${money(item)}</div></div><div class="card"><div class="muted">လက်ခ</div><div class="total">${money(labor)}</div></div></div><div class="total">နှစ်စုစုပေါင်း: ${money(total)}</div>`;
- $("yearlySummary").innerHTML+=monthly.length?`<div style="overflow:auto;margin-top:12px"><table><tr><th>လ</th><th>ဘောင်ချာ</th><th>လက်ခ</th><th>${laborMode.year?"":"ပစ္စည်း/ပြုပြင်"}</th><th>${laborMode.year?"":"စုစုပေါင်း"}</th></tr>${monthly.map(x=>`<tr><td>${y}-${x.m}</td><td>${x.a.length}</td><td>${money(x.labor)}</td><td>${laborMode.year?"":money(x.item)}</td><td>${laborMode.year?"":money(x.item+x.labor)}</td></tr>`).join("")}</table></div>`:'<div class="empty">ဒီနှစ်အတွက် စာရင်းမရှိပါ</div>';
-}
-function renderAll(){renderVouchers();renderMonthly();renderYearly()}
-document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));b.classList.add("active");$(b.dataset.view).classList.add("active")});
-$("date").value=today();$("monthPick").value=today().slice(0,7);$("yearPick").value=new Date().getFullYear();resetForm();renderAll();
 
-if("serviceWorker" in navigator && location.protocol!=="file:"){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+  const search =
+    $("search");
+
+
+  const q =
+    search
+      ? search.value
+          .toLowerCase()
+          .trim()
+      : "";
+
+
+  const arr =
+
+    [...data]
+
+    .sort(
+
+      (a,b) =>
+
+        String(b.date)
+          .localeCompare(
+            String(a.date)
+          )
+
+        ||
+
+        Number(b.no) -
+        Number(a.no)
+
+    )
+
+    .filter(v =>
+
+      [
+
+        v.no,
+
+        v.date,
+
+        v.carNo,
+
+        v.customer
+
+      ]
+
+      .join(" ")
+
+      .toLowerCase()
+
+      .includes(q)
+
+    );
+
+
+  if(!arr.length){
+
+    $("voucherList")
+      .innerHTML =
+      '<div class="empty">ဘောင်ချာ မရှိသေးပါ</div>';
+
+    return;
+
+  }
+
+
+  $("voucherList")
+    .innerHTML =
+
+    arr.map(v => {
+
+      const total =
+        grand(v);
+
+
+      const advance =
+        Number(
+          v.advance || 0
+        );
+
+
+      const balance = v.paid ? 0 : Math.max(0, total - advance);
+
+
+      const buttons =
+
+        v.paid
+
+          ? `
+
+            <span class="muted">
+
+              🔒 ငွေရှင်းပြီး —
+              ပြင်/ဖျက် မရ
+
+            </span>
+
+          `
+
+          : `
+
+            <button
+              class="secondary"
+              type="button"
+              onclick="editVoucher('${v.id}')"
+            >
+              Edit
+            </button>
+
+            <button
+              class="danger"
+              type="button"
+              onclick="deleteVoucher('${v.id}')"
+            >
+              Delete
+            </button>
+
+          `;
+
+
+      return `
+
+        <div
+          class="item ${v.paid ? "locked" : ""}"
+        >
+
+          <div class="row">
+
+            <b>
+              ဘောင်ချာ #${esc(v.no)}
+            </b>
+
+
+            <span
+              class="badge ${v.paid ? "paid" : ""}"
+            >
+
+              ${
+                v.paid
+                  ? "✓ ငွေရှင်းပြီး"
+                  : "မရှင်းရသေး"
+              }
+
+            </span>
+
+
+            <span class="right">
+
+              ${esc(v.date)}
+
+            </span>
+
+          </div>
+
+
+          <div
+            style="margin-top:5px"
+          >
+
+            🚗
+            ${esc(v.carNo || "-")}
+
+            &nbsp;
+
+            👤
+            ${esc(v.customer || "-")}
+
+          </div>
+
+
+          <div
+            class="muted"
+            style="margin-top:5px"
+          >
+
+            ${
+              (v.items || [])
+                .map(i =>
+
+                  esc(i.name)
+                  +
+                  " × "
+                  +
+                  i.qty
+                  +
+                  " = "
+                  +
+                  money(
+                    i.qty *
+                    i.price
+                  )
+
+                )
+                .join(" • ")
+            }
+
+          </div>
+
+
+          <div
+            style="margin-top:7px"
+          >
+
+            <span>
+
+              ပစ္စည်း/ပြုပြင်:
+
+              <b>
+                ${money(itemTotal(v))}
+              </b>
+
+            </span>
+
+            &nbsp;
+
+            <span>
+
+              လက်ခ:
+
+              <b>
+                ${money(v.labor)}
+              </b>
+
+            </span>
+
+            &nbsp;
+
+            <span class="total">
+
+              စုစုပေါင်း:
+
+              ${money(total)}
+
+            </span>
+
+          </div>
+
+
+          <div
+            class="muted"
+            style="margin-top:4px"
+          >
+
+            ကြိုပေး:
+            ${money(advance)}
+
+            •
+
+            လက်ကျန်:
+            ${money(balance)}
+
+          </div>
+
+
+          ${
+            v.note
+
+              ? `
+
+                <div
+                  class="muted"
+                  style="margin-top:4px"
+                >
+
+                  မှတ်ချက်:
+                  ${esc(v.note)}
+
+                </div>
+
+              `
+
+              : ""
+          }
+
+
+          <div
+            class="row"
+            style="margin-top:8px"
+          >
+
+            <button
+              class="secondary"
+              type="button"
+              onclick="printVoucher('${v.id}')"
+            >
+
+              🧾 PDF ထုတ်ရန်
+
+            </button>
+
+
+            ${buttons}
+
+          </div>
+
+        </div>
+
+      `;
+
+    })
+
+    .join("");
+
+}
+
+
+/* =====================================================
+   LABOR MODE
+===================================================== */
+
+function setLaborMode(
+  type,
+  on
+){
+
+  laborMode[type] =
+    on;
+
+
+  renderAll();
+
+}
+
+
+/* =====================================================
+   MONTHLY
+===================================================== */
+
+function renderMonthly(){
+
+  const m = $("monthPick").value;
+
+  if(!m){
+    $("monthlySummary").innerHTML = "လ ရွေးပါ";
+    return;
+  }
+
+  // ငွေရှင်းပြီးသား ဘောင်ချာတွေပဲ
+  const arr = data.filter(
+    v =>
+      String(v.date).slice(0, 7) === m &&
+      v.paid === true
+  );
+
+  const item = arr.reduce(
+    (s, v) => s + itemTotal(v),
+    0
+  );
+
+  const labor = arr.reduce(
+    (s, v) => s + Number(v.labor || 0),
+    0
+  );
+
+  const total = item + labor;
+
+  // Button state
+  $("monthAllBtn").className =
+    laborMode.month ? "secondary" : "primary";
+
+  $("monthLaborBtn").className =
+    laborMode.month ? "primary" : "secondary";
+
+
+  /*
+   * =========================
+   * လက်ခပဲကြည့်
+   * =========================
+   */
+  if(laborMode.month){
+
+    $("monthlySummary").innerHTML = `
+      <div class="grid">
+
+        <div class="card">
+          <div class="muted">
+            လက်ခ / ပြုပြင်ခ
+          </div>
+
+          <div class="total">
+            ${money(labor)}
+          </div>
+        </div>
+
+      </div>
+
+      <div
+        class="muted"
+        style="margin:8px 0"
+      >
+        ငွေရှင်းပြီး ဘောင်ချာ ${arr.length} ခု
+      </div>
+    `;
+
+    if(!arr.length){
+
+      $("monthlySummary").innerHTML +=
+        '<div class="empty">ဒီလမှာ ငွေရှင်းပြီး ဘောင်ချာ မရှိပါ</div>';
+
+      return;
+    }
+
+    const sorted = [...arr].sort(
+      (a,b) =>
+        String(a.date)
+          .localeCompare(String(b.date))
+    );
+
+    $("monthlySummary").innerHTML += `
+      <div
+        style="
+          overflow:auto;
+          margin-top:12px
+        "
+      >
+        <table>
+
+          <tr>
+            <th>ရက်စွဲ</th>
+            <th>ဘောင်ချာ</th>
+            <th>ကား</th>
+            <th>လက်ခ</th>
+          </tr>
+
+          ${
+            sorted.map(v => {
+
+              const laborAmount =
+                Number(v.labor || 0);
+
+              return `
+                <tr>
+
+                  <td>
+                    ${esc(v.date)}
+                  </td>
+
+                  <td>
+                    #${esc(v.no)}
+                  </td>
+
+                  <td>
+                    ${esc(v.carNo || "-")}
+                  </td>
+
+                  <td>
+                    <b>
+                      ${money(laborAmount)}
+                    </b>
+                  </td>
+
+                </tr>
+              `;
+
+            }).join("")
+          }
+
+          <tr>
+
+            <th colspan="3">
+              လက်ခ စုစုပေါင်း
+            </th>
+
+            <th>
+              ${money(labor)}
+            </th>
+
+          </tr>
+
+        </table>
+      </div>
+    `;
+
+    return;
+  }
+
+
+  /*
+   * =========================
+   * အားလုံးကြည့်
+   * =========================
+   */
+
+  $("monthlySummary").innerHTML = `
+    <div class="grid">
+
+      <div class="card">
+        <div class="muted">
+          ပစ္စည်းဖိုး
+        </div>
+
+        <div class="total">
+          ${money(item)}
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="muted">
+          လက်ခ / ပြုပြင်ခ
+        </div>
+
+        <div class="total">
+          ${money(labor)}
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="muted">
+          စုစုပေါင်း
+        </div>
+
+        <div class="total">
+          ${money(total)}
+        </div>
+      </div>
+
+    </div>
+
+    <div
+      class="muted"
+      style="margin:8px 0"
+    >
+      ငွေရှင်းပြီး ဘောင်ချာ ${arr.length} ခု
+    </div>
+  `;
+
+  if(!arr.length){
+
+    $("monthlySummary").innerHTML +=
+      '<div class="empty">ဒီလမှာ ငွေရှင်းပြီး ဘောင်ချာ မရှိပါ</div>';
+
+    return;
+  }
+
+  const sorted = [...arr].sort(
+    (a,b) =>
+      String(a.date)
+        .localeCompare(String(b.date))
+  );
+
+  $("monthlySummary").innerHTML += `
+    <div
+      style="
+        overflow:auto;
+        margin-top:12px
+      "
+    >
+
+      <table>
+
+        <tr>
+          <th>ရက်စွဲ</th>
+          <th>ဘောင်ချာ</th>
+          <th>ကား</th>
+          <th>ပစ္စည်းဖိုး</th>
+          <th>လက်ခ</th>
+          <th>စုစုပေါင်း</th>
+        </tr>
+
+        ${
+          sorted.map(v => {
+
+            const itemAmount =
+              itemTotal(v);
+
+            const laborAmount =
+              Number(v.labor || 0);
+
+            const grandTotal =
+              itemAmount + laborAmount;
+
+            return `
+              <tr>
+
+                <td>
+                  ${esc(v.date)}
+                </td>
+
+                <td>
+                  #${esc(v.no)}
+                </td>
+
+                <td>
+                  ${esc(v.carNo || "-")}
+                </td>
+
+                <td>
+                  ${money(itemAmount)}
+                </td>
+
+                <td>
+                  ${money(laborAmount)}
+                </td>
+
+                <td>
+                  <b>
+                    ${money(grandTotal)}
+                  </b>
+                </td>
+
+              </tr>
+            `;
+
+          }).join("")
+        }
+
+        <tr>
+
+          <th colspan="3">
+            လချုပ် စုစုပေါင်း
+          </th>
+
+          <th>
+            ${money(item)}
+          </th>
+
+          <th>
+            ${money(labor)}
+          </th>
+
+          <th>
+            ${money(total)}
+          </th>
+
+        </tr>
+
+      </table>
+
+    </div>
+  `;
+}
+
+
+/* =====================================================
+   YEARLY
+===================================================== */
+
+function renderYearly(){
+
+  const y = $("yearPick").value;
+
+  if(!y){
+    $("yearlySummary").innerHTML = "နှစ် ရွေးပါ";
+    return;
+  }
+
+  $("yearAllBtn").className =
+  laborMode.year ? "secondary" : "primary";
+
+  $("yearLaborBtn").className =
+  laborMode.year ? "primary" : "secondary";
+
+  // ငွေရှင်းပြီးသား ဘောင်ချာတွေပဲ
+  const arr = data.filter(
+    v =>
+      String(v.date).slice(0, 4) === y &&
+      v.paid === true
+  );
+
+  const item = arr.reduce(
+    (s, v) => s + itemTotal(v),
+    0
+  );
+
+  const labor = arr.reduce(
+    (s, v) => s + Number(v.labor || 0),
+    0
+  );
+
+  const total = item + labor;
+
+
+  /*
+   * =========================
+   * လက်ခပဲကြည့်
+   * =========================
+   */
+  if(laborMode.year){
+
+    $("yearlySummary").innerHTML = `
+      <div class="grid">
+
+        <div class="card">
+          <div class="muted">
+            လက်ခ / ပြုပြင်ခ
+          </div>
+
+          <div class="total">
+            ${money(labor)}
+          </div>
+        </div>
+
+      </div>
+
+      <div
+        class="muted"
+        style="margin:8px 0"
+      >
+        ငွေရှင်းပြီး ဘောင်ချာ ${arr.length} ခု
+      </div>
+    `;
+
+  }else{
+
+    /*
+     * =========================
+     * အားလုံးကြည့်
+     * =========================
+     */
+    $("yearlySummary").innerHTML = `
+      <div class="grid">
+
+        <div class="card">
+          <div class="muted">
+            ပစ္စည်းဖိုး
+          </div>
+
+          <div class="total">
+            ${money(item)}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="muted">
+            လက်ခ / ပြုပြင်ခ
+          </div>
+
+          <div class="total">
+            ${money(labor)}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="muted">
+            နှစ်ချုပ် စုစုပေါင်း
+          </div>
+
+          <div class="total">
+            ${money(total)}
+          </div>
+        </div>
+
+      </div>
+
+      <div
+        class="muted"
+        style="margin:8px 0"
+      >
+        ငွေရှင်းပြီး ဘောင်ချာ ${arr.length} ခု
+      </div>
+    `;
+  }
+
+
+  if(!arr.length){
+
+    $("yearlySummary").innerHTML +=
+      '<div class="empty">ဒီနှစ်မှာ ငွေရှင်းပြီး ဘောင်ချာ မရှိပါ</div>';
+
+    return;
+  }
+
+
+  /*
+   * =========================
+   * လအလိုက် စုမယ်
+   * =========================
+   */
+
+  const months = {};
+
+  arr.forEach(v => {
+
+    const month =
+      String(v.date).slice(0, 7);
+
+    if(!months[month]){
+
+      months[month] = {
+        count: 0,
+        item: 0,
+        labor: 0,
+        total: 0
+      };
+
+    }
+
+    const itemAmount =
+      itemTotal(v);
+
+    const laborAmount =
+      Number(v.labor || 0);
+
+    months[month].count++;
+
+    months[month].item +=
+      itemAmount;
+
+    months[month].labor +=
+      laborAmount;
+
+    months[month].total +=
+      itemAmount + laborAmount;
+  });
+
+
+  /*
+   * =========================
+   * လက်ခပဲကြည့် Table
+   * =========================
+   */
+
+  if(laborMode.year){
+
+    const monthRows =
+      Object.keys(months)
+        .sort()
+        .map(month => {
+
+          const m = months[month];
+
+          return `
+            <tr>
+
+              <td>
+                ${esc(month)}
+              </td>
+
+              <td>
+                ${m.count}
+              </td>
+
+              <td>
+                <b>
+                  ${money(m.labor)}
+                </b>
+              </td>
+
+            </tr>
+          `;
+
+        }).join("");
+
+
+    $("yearlySummary").innerHTML += `
+      <div
+        style="
+          overflow:auto;
+          margin-top:12px
+        "
+      >
+
+        <table>
+
+          <tr>
+            <th>လ</th>
+            <th>ဘောင်ချာ</th>
+            <th>လက်ခ</th>
+          </tr>
+
+          ${monthRows}
+
+          <tr>
+
+            <th>
+              နှစ်ချုပ်
+            </th>
+
+            <th>
+              ${arr.length}
+            </th>
+
+            <th>
+              ${money(labor)}
+            </th>
+
+          </tr>
+
+        </table>
+
+      </div>
+    `;
+
+    return;
+  }
+
+
+  /*
+   * =========================
+   * အားလုံးကြည့် Table
+   * =========================
+   */
+
+  const monthRows =
+    Object.keys(months)
+      .sort()
+      .map(month => {
+
+        const m = months[month];
+
+        return `
+          <tr>
+
+            <td>
+              ${esc(month)}
+            </td>
+
+            <td>
+              ${m.count}
+            </td>
+
+            <td>
+              ${money(m.item)}
+            </td>
+
+            <td>
+              ${money(m.labor)}
+            </td>
+
+            <td>
+              <b>
+                ${money(m.total)}
+              </b>
+            </td>
+
+          </tr>
+        `;
+
+      }).join("");
+
+
+  $("yearlySummary").innerHTML += `
+    <div
+      style="
+        overflow:auto;
+        margin-top:12px
+      "
+    >
+
+      <table>
+
+        <tr>
+          <th>လ</th>
+          <th>ဘောင်ချာ</th>
+          <th>ပစ္စည်းဖိုး</th>
+          <th>လက်ခ</th>
+          <th>စုစုပေါင်း</th>
+        </tr>
+
+        ${monthRows}
+
+        <tr>
+
+          <th>
+            နှစ်ချုပ်
+          </th>
+
+          <th>
+            ${arr.length}
+          </th>
+
+          <th>
+            ${money(item)}
+          </th>
+
+          <th>
+            ${money(labor)}
+          </th>
+
+          <th>
+            ${money(total)}
+          </th>
+
+        </tr>
+
+      </table>
+
+    </div>
+  `;
+}
+
+/* =====================================================
+   BACKUP
+===================================================== */
+
+async function backupData(){
+
+  if(!dbReady){
+
+    alert(
+      "Database မပြင်ဆင်ရသေးပါ။"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    /*
+      Get latest data directly
+      from IndexedDB.
+    */
+
+    const vouchers =
+      await dbGetAll();
+
+
+    const nextNo =
+      await dbGetSetting(
+        "nextVoucherNo"
+      );
+
+
+    const backup = {
+
+      app:
+        "ကိုကြက် ကားဝပ်ရှော့",
+
+      version:
+        1,
+
+      exportedAt:
+        new Date()
+          .toISOString(),
+
+      nextVoucherNo:
+        Number(nextNo || 1),
+
+      vouchers:
+        vouchers
+
+    };
+
+
+    const json =
+      JSON.stringify(
+        backup,
+        null,
+        2
+      );
+
+
+    const blob =
+      new Blob(
+        [json],
+        {
+          type:
+            "application/json"
+        }
+      );
+
+
+    const url =
+      URL.createObjectURL(
+        blob
+      );
+
+
+    const a =
+      document.createElement("a");
+
+
+    const stamp =
+      new Date()
+        .toISOString()
+        .replace(
+          /[:.]/g,
+          "-"
+        );
+
+
+    a.href =
+      url;
+
+
+    a.download =
+      `ko-kyat-workshop-backup-${stamp}.json`;
+
+
+    document.body
+      .appendChild(a);
+
+
+    a.click();
+
+
+    a.remove();
+
+
+    URL.revokeObjectURL(
+      url
+    );
+
+
+    alert(
+      `Backup ပြုလုပ်ပြီးပါပြီ။\n\nVoucher ${vouchers.length} ခု`
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Backup error:",
+      error
+    );
+
+
+    alert(
+      "Backup ပြုလုပ်ရာမှာ Error ဖြစ်နေပါတယ်။"
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   RESTORE
+===================================================== */
+
+async function restoreData(event){
+
+  const file =
+    event.target.files[0];
+
+
+  /*
+    Reset file input
+    so same file can be selected again.
+  */
+
+  event.target.value =
+    "";
+
+
+  if(!file){
+
+    return;
+
+  }
+
+
+  if(!confirm(
+    "Restore လုပ်မလား?\n\n" +
+    "လက်ရှိ Voucher data တွေကို " +
+    "Backup ဖိုင်ထဲက data နဲ့ အစားထိုးပါမယ်။"
+  )){
+
+    return;
+
+  }
+
+
+  try{
+
+    const text =
+      await file.text();
+
+
+    const backup =
+      JSON.parse(text);
+
+
+    if(
+      !backup ||
+      !Array.isArray(
+        backup.vouchers
+      )
+    ){
+
+      throw new Error(
+        "Backup file format မမှန်ပါ"
+      );
+
+    }
+
+
+    /*
+      Basic validation
+    */
+
+    const valid =
+      backup.vouchers.every(
+        v =>
+          v &&
+          typeof v.id === "string" &&
+          Array.isArray(v.items)
+      );
+
+
+    if(!valid){
+
+      throw new Error(
+        "Voucher data format မမှန်ပါ"
+      );
+
+    }
+
+
+    /*
+      Clear old database
+    */
+
+    await dbClearVouchers();
+
+
+    /*
+      Insert backup vouchers
+    */
+
+    for(
+      const voucher
+      of backup.vouchers
+    ){
+
+      await dbPutVoucher(
+        voucher
+      );
+
+    }
+
+
+    data =
+      await dbGetAll();
+
+
+    /*
+      Restore next voucher number.
+      If backup doesn't contain it,
+      calculate from data.
+    */
+
+    const backupNext =
+      Number(
+        backup.nextVoucherNo
+      );
+
+
+    if(
+      Number.isFinite(
+        backupNext
+      ) &&
+      backupNext >= 1
+    ){
+
+      await dbSetSetting(
+        "nextVoucherNo",
+        backupNext
+      );
+
+    }else{
+
+      await resetNextNoFromData();
+
+    }
+
+
+    renderAll();
+
+    await resetForm();
+
+
+    alert(
+      `Restore အောင်မြင်ပါပြီ။\n\nVoucher ${data.length} ခု`
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Restore error:",
+      error
+    );
+
+
+    alert(
+      "Restore မအောင်မြင်ပါ။\n\n" +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   BACKUP COUNT
+===================================================== */
+
+function renderBackupInfo(){
+
+  $("backupCount")
+    .textContent =
+    data.length.toLocaleString();
+
+}
+
+
+/* =====================================================
+   RENDER ALL
+===================================================== */
+
+function renderAll(){
+
+  renderVouchers();
+
+  renderMonthly();
+
+  renderYearly();
+
+  renderBackupInfo();
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+document
+  .querySelectorAll(".tab")
+  .forEach(button => {
+
+    button.onclick = () => {
+
+      document
+        .querySelectorAll(".tab")
+        .forEach(
+          x =>
+            x.classList.remove(
+              "active"
+            )
+        );
+
+
+      document
+        .querySelectorAll(".view")
+        .forEach(
+          x =>
+            x.classList.remove(
+              "active"
+            )
+        );
+
+
+      button.classList.add(
+        "active"
+      );
+
+
+      $(
+        button.dataset.view
+      )
+      .classList.add(
+        "active"
+      );
+
+    };
+
+  });
+
+
+/* =====================================================
+   PRINT / PDF
+===================================================== */
 
 function printVoucher(id){
- const v=data.find(x=>x.id===id); if(!v)return;
- const rows=(v.items||[]).map((i,n)=>`<tr><td>${n+1}</td><td>${esc(i.name)}</td><td>${i.qty}</td><td class="money">${money(i.price)}</td><td class="money">${money(Number(i.qty||0)*Number(i.price||0))}</td></tr>`).join("");
- const labor=Number(v.labor||0), it=itemTotal(v), total=it+labor, adv=Number(v.advance||0), bal=Math.max(0,total-adv);
- const w=window.open("","_blank");
- if(!w){alert("PDF ထုတ်ရန် window ကို Browser က ပိတ်ထားပါတယ်။ Chrome မှာ Pop-up ကို Allow လုပ်ပြီး ပြန်နှိပ်ပါ။");return}
- w.document.write(`<!doctype html><html lang="my"><head><meta charset="utf-8"><title>ဘောင်ချာ #${esc(v.no)}</title>
- <style>@page{size:A5 portrait;margin:6mm}body{font-family:"Noto Sans Myanmar","Myanmar Text",sans-serif;color:#111;margin:0}.receipt{width:100%;max-width:148mm;margin:auto}.head{text-align:center;border-bottom:2px solid #111;padding-bottom:4mm;margin-bottom:4mm}.head h2{margin:0;font-size:21px}.head div{font-size:11px}.meta{display:grid;grid-template-columns:1fr 1fr;gap:2mm;font-size:11px;margin-bottom:3mm}.meta div{border-bottom:1px solid #777;padding:1.5mm 0}table{width:100%;border-collapse:collapse;font-size:10px}th,td{border:1px solid #222;padding:1.8mm}th{background:#eee}.money{text-align:right}.sum{margin:4mm 0 0 auto;width:62%;font-size:11px}.sum div{display:flex;justify-content:space-between;border-bottom:1px solid #333;padding:1.5mm 0}.sig{text-align:right;margin-top:14mm;font-size:11px}.note{font-size:10px;margin-top:4mm}</style></head><body>
- <div class="receipt"><div class="head"><h2>ကိုကြက် ကားဝပ်ရှော့</h2><div>ဘောင်ချာ / ပြုပြင်ရေး စာရင်း</div></div>
- <div class="meta"><div>ဘောင်ချာ No: <b>${esc(v.no)}</b></div><div>ရက်စွဲ: <b>${esc(v.date)}</b></div><div>အမည်: <b>${esc(v.customer||"-")}</b></div><div>ကားနံပါတ်: <b>${esc(v.carNo||"-")}</b></div></div>
- <table><tr><th>NO</th><th>PARTICULAR</th><th>QTY</th><th>PRICE</th><th>AMOUNT</th></tr>${rows}
- ${labor?`<tr><td></td><td><b>ပြုပြင်စစ်ဆေးလက်ခ</b></td><td>1</td><td class="money">${money(labor)}</td><td class="money">${money(labor)}</td></tr>`:""}</table>
- <div class="sum"><div><b>TOTAL</b><b>${money(total)}</b></div><div><span>ADVANCE</span><b>${money(adv)}</b></div><div><span>BALANCE</span><b>${money(bal)}</b></div><div><span>STATUS</span><b>${v.paid?"ငွေရှင်းပြီး":"မရှင်းရသေး"}</b></div></div>
- ${v.note?`<div class="note">မှတ်ချက်: ${esc(v.note)}</div>`:""}<div class="sig">Signature ____________________</div></div>
- <script>window.onload=()=>setTimeout(()=>window.print(),300);<\/script></body></html>`);
- w.document.close();
+
+  const v =
+    data.find(
+      x =>
+        x.id === id
+    );
+
+
+  if(!v){
+
+    alert(
+      "ဘောင်ချာ မတွေ့ပါ"
+    );
+
+    return;
+
+  }
+
+
+  const rows =
+
+    (v.items || [])
+      .map(
+
+        (i,n) => `
+
+          <tr>
+
+            <td>
+              ${n+1}
+            </td>
+
+            <td>
+              ${esc(i.name)}
+            </td>
+
+            <td>
+              ${i.qty}
+            </td>
+
+            <td class="money">
+              ${money(i.price)}
+            </td>
+
+            <td class="money">
+              ${money(
+                Number(i.qty || 0) *
+                Number(i.price || 0)
+              )}
+            </td>
+
+          </tr>
+
+        `
+
+      )
+      .join("");
+
+
+  const labor =
+    Number(
+      v.labor || 0
+    );
+
+
+  const it =
+    itemTotal(v);
+
+
+  const total =
+    it + labor;
+
+
+  const adv =
+    Number(
+      v.advance || 0
+    );
+
+
+  const bal = v.paid ? 0 : Math.max(0, total - adv);
+
+
+  const w =
+    window.open(
+      "",
+      "_blank"
+    );
+
+
+  if(!w){
+
+    alert(
+      "PDF ထုတ်ရန် Popup ကို Browser က ပိတ်ထားပါတယ်။ Popup Allow လုပ်ပါ။"
+    );
+
+    return;
+
+  }
+
+
+  w.document.write(`
+
+    <!doctype html>
+
+    <html lang="my">
+
+    <head>
+
+      <meta charset="utf-8">
+
+      <title>
+        ဘောင်ချာ #${esc(v.no)}
+      </title>
+
+
+      <style>
+
+        @page{
+          size:A5 portrait;
+          margin:6mm;
+        }
+
+        body{
+          font-family:
+            "Noto Sans Myanmar",
+            "Myanmar Text",
+            sans-serif;
+
+          color:#111;
+          margin:0;
+        }
+
+        .receipt{
+          width:100%;
+          max-width:148mm;
+          margin:auto;
+        }
+
+        .head{
+          text-align:center;
+          border-bottom:2px solid #111;
+          padding-bottom:4mm;
+          margin-bottom:4mm;
+        }
+
+        .head h2{
+          margin:0;
+          font-size:21px;
+        }
+
+        .head div{
+          font-size:11px;
+        }
+
+        .meta{
+          display:grid;
+          grid-template-columns:1fr 1fr;
+          gap:2mm;
+          font-size:11px;
+          margin-bottom:3mm;
+        }
+
+        .meta div{
+          border-bottom:1px solid #777;
+          padding:1.5mm 0;
+        }
+
+        table{
+          width:100%;
+          border-collapse:collapse;
+          font-size:10px;
+        }
+
+        th,
+        td{
+          border:1px solid #222;
+          padding:1.8mm;
+        }
+
+        th{
+          background:#eee;
+        }
+
+        .money{
+          text-align:right;
+        }
+
+        .sum{
+          margin:4mm 0 0 auto;
+          width:62%;
+          font-size:11px;
+        }
+
+        .sum div{
+          display:flex;
+          justify-content:space-between;
+          border-bottom:1px solid #333;
+          padding:1.5mm 0;
+        }
+
+        .sig{
+          text-align:right;
+          margin-top:14mm;
+          font-size:11px;
+        }
+
+        .note{
+          font-size:10px;
+          margin-top:4mm;
+        }
+
+      </style>
+
+    </head>
+
+
+    <body>
+
+      <div class="receipt">
+
+        <div class="head">
+
+          <h2>
+            ကိုကြက် ကားဝပ်ရှော့
+          </h2>
+
+          <div>
+            ဘောင်ချာ / ပြုပြင်ရေး စာရင်း
+          </div>
+
+        </div>
+
+
+        <div class="meta">
+
+          <div>
+            ဘောင်ချာ No:
+            <b>${esc(v.no)}</b>
+          </div>
+
+          <div>
+            ရက်စွဲ:
+            <b>${esc(v.date)}</b>
+          </div>
+
+          <div>
+            အမည်:
+            <b>${esc(v.customer || "-")}</b>
+          </div>
+
+          <div>
+            ကားနံပါတ်:
+            <b>${esc(v.carNo || "-")}</b>
+          </div>
+
+        </div>
+
+
+        <table>
+
+          <tr>
+
+            <th>NO</th>
+            <th>PARTICULAR</th>
+            <th>QTY</th>
+            <th>PRICE</th>
+            <th>AMOUNT</th>
+
+          </tr>
+
+
+          ${rows}
+
+
+          ${
+            labor
+
+              ? `
+
+                <tr>
+
+                  <td></td>
+
+                  <td>
+                    <b>
+                      ပြုပြင်စစ်ဆေးလက်ခ
+                    </b>
+                  </td>
+
+                  <td>1</td>
+
+                  <td class="money">
+                    ${money(labor)}
+                  </td>
+
+                  <td class="money">
+                    ${money(labor)}
+                  </td>
+
+                </tr>
+
+              `
+
+              : ""
+          }
+
+        </table>
+
+
+        <div class="sum">
+
+          <div>
+
+            <b>TOTAL</b>
+
+            <b>
+              ${money(total)}
+            </b>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              ADVANCE
+            </span>
+
+            <b>
+              ${money(adv)}
+            </b>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              BALANCE
+            </span>
+
+            <b>
+              ${money(bal)}
+            </b>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              STATUS
+            </span>
+
+            <b>
+              ${
+                v.paid
+                  ? "ငွေရှင်းပြီး"
+                  : "မရှင်းရသေး"
+              }
+            </b>
+
+          </div>
+
+        </div>
+
+
+        ${
+          v.note
+
+            ? `
+
+              <div class="note">
+
+                မှတ်ချက်:
+                ${esc(v.note)}
+
+              </div>
+
+            `
+
+            : ""
+        }
+
+
+        <div class="sig">
+
+          Signature
+          ____________________
+
+        </div>
+
+      </div>
+
+
+      <script>
+
+        window.onload = function(){
+
+          setTimeout(
+            function(){
+              window.print();
+            },
+            300
+          );
+
+        };
+
+      <\/script>
+
+    </body>
+
+    </html>
+
+  `);
+
+
+  w.document.close();
+
 }
 
+
+/* =====================================================
+   INITIALIZE DATABASE
+===================================================== */
+
+async function initApp(){
+
+  $("dbStatus")
+    .textContent =
+    "DB ချိတ်နေသည်...";
+
+
+  try{
+
+    await openDB();
+
+
+    data =
+      await dbGetAll();
+
+
+    /*
+      First installation:
+      initialize voucher number.
+    */
+
+    let next =
+      await dbGetSetting(
+        "nextVoucherNo"
+      );
+
+
+    if(
+      next === null ||
+      !Number.isFinite(
+        Number(next)
+      ) ||
+      Number(next) < 1
+    ){
+
+      await resetNextNoFromData();
+
+    }
+
+
+    dbReady =
+      true;
+
+
+    $("dbStatus")
+      .textContent =
+      "✓ IndexedDB";
+
+
+    $("date").value =
+      today();
+
+
+    $("monthPick").value =
+      today().slice(0,7);
+
+
+    $("yearPick").value =
+      new Date()
+        .getFullYear();
+
+
+    await resetForm();
+
+
+    renderAll();
+
+
+  }catch(error){
+
+    console.error(
+      "Database initialization error:",
+      error
+    );
+
+
+    $("dbStatus")
+      .textContent =
+      "✕ DB Error";
+
+
+    alert(
+      "IndexedDB ဖွင့်မရပါ။\n\n" +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   START APP
+===================================================== */
+
+initApp();
+
 </script>
-</body></html>
+
+</body>
+</html>
